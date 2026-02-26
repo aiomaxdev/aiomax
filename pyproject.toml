@@ -11,6 +11,7 @@ authors = [
 ]
 dependencies = [
     "aiohttp>=3.8",
+    "pydantic>=2.5"   # <-- добавляем сюда
 ]
 
 [tool.setuptools.packages.find]

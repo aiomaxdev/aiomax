@@ -1,5 +1,1 @@
-from .bot import Bot
-
-__all__ = [
-    'Bot'
-]
+__all__ = ['MAXClient']
