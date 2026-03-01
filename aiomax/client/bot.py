@@ -1,41 +1,51 @@
-from typing import List, Optional
-from aiomax.client.client import MAXClient
-from aiomax.types.bot_info import BotInfo
-from aiomax.types.update import Update
-from aiomax.api_methods.get_me import GetMe
-from aiomax.api_methods.send_message import SendMessage
 from aiomax.api_methods.get_updates import GetUpdates
+from aiomax.client.client import MAXClient
+from aiomax.api_methods.get_messages import GetMessages
+from aiomax.api_methods.get_me import GetMe
 
 
 class Bot:
     def __init__(self, token: str):
         self.client = MAXClient(token)
-        # Существующие API методы
-        self._get_me = GetMe(self.client)
-        self._send_message = SendMessage(self.client)
-        # Новый метод
-        self._get_updates = GetUpdates(self.client)
+        self._marker: int | None = None
+        self._is_running = False
 
-    # Существующие методы
-    async def get_me(self) -> BotInfo:
-        """Возвращает информацию о боте"""
-        return await self._get_me.call()
+    async def start(self):
+        await self.client.start()
 
-    async def send_message(
-        self,
-        chat_id: int | None = None,
-        user_id: int | None = None,
-        text: str = ""
-    ) -> dict:
-        """Отправляет сообщение пользователю или в чат"""
-        return await self._send_message.call(chat_id=chat_id, user_id=user_id, text=text)
+    async def close(self):
+        await self.client.close()
 
-    # Новый метод
-    async def get_updates(
-        self,
-        offset: int | None = None,
-        limit: int = 100,
-        timeout: int = 30
-    ) -> List[Update]:
-        """Получает события из чата"""
-        return await self._get_updates.call(offset=offset, limit=limit, timeout=timeout)
+    async def __call__(self, method):
+        return await self.client.request(method)
+
+    # sugar methods
+    async def get_me(self):
+        return await self(GetMe())
+
+    async def get_messages(self, **kwargs):
+        return await self(GetMessages(**kwargs))
+    
+    async def get_updates(self, **kwargs):
+        return await self(GetUpdates(**kwargs))
+    
+    async def start_polling(self):
+        self._is_running = True
+        while True:
+            response = await self.get_updates(
+                marker = self._marker,
+                timeout=30
+            )
+            updates = response.get("updates",[])
+            # print(updates)
+            self._marker = response.get("marker")
+            
+            for update in updates:
+                await self.update_poll(update)
+
+
+    async def stop_polling(self):
+        self._is_running = False
+
+    async def update_poll(self, update:dict):
+        print(update)

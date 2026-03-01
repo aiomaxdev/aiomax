@@ -1,10 +1,9 @@
-from aiomax.client.client import MAXClient
-from aiomax.types.bot_info import BotInfo
+from aiomax.api_methods.base_method import BaseMethod
 
-class GetMe:
-    def __init__(self, client: MAXClient):
-        self.client = client
+class GetMe(BaseMethod):
+    path = "me"  # исправлено, чтобы путь соответствовал API
+    method = "GET"
 
-    async def call(self) -> BotInfo:
-        data = await self.client.request("GET", "/me")
-        return BotInfo(**data)
+    def __init__(self):
+        # никаких параметров для GetMe
+        super().__init__()

@@ -1,33 +1,34 @@
-from typing import List, Optional
-from aiomax.client.client import MAXClient
-from aiomax.types.update import Update
+from aiomax.api_methods.base_method import BaseMethod
+from typing import Optional, List
 
 
-class GetUpdates:
-    def __init__(self, client: MAXClient):
-        self.client = client
+class GetUpdates(BaseMethod):
+    path = "updates"
+    method = "GET"
 
-    async def call(
+    def __init__(
         self,
-        offset: Optional[int] = None,
+        *,
         limit: int = 100,
-        timeout: int = 30
-    ) -> List[Update]:
+        timeout: int = 30,
+        marker: Optional[int] = None,
+        types: Optional[List[str]] = None,
+    ):
+        if not (1 <= limit <= 1000):
+            raise ValueError("limit должен быть от 1 до 1000")
+
+        if not (0 <= timeout <= 90):
+            raise ValueError("timeout должен быть от 0 до 90")
+
         params = {
             "limit": limit,
             "timeout": timeout,
         }
-        if offset is not None:
-            params["offset"] = offset
 
-        data = await self.client.request(
-            "GET",
-            "/updates",
-            params=params
-        )
+        if marker is not None:
+            params["marker"] = marker
 
-        # Берем список апдейтов из ключа "updates"
-        updates_list = data.get("updates", [])
+        if types:
+            params["types"] = ",".join(types)
 
-        # Возвращаем список объектов Update
-        return [Update(**item) for item in updates_list]
+        super().__init__(**params)

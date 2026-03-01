@@ -1,7 +1,7 @@
 from aiomax.api_methods.base_method import BaseMethod
 
 
-class GetUpdates(BaseMethod):
+class GetMessages(BaseMethod):
     path = "messages"
     method = "GET"
 
