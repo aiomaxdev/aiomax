@@ -1,4 +1,7 @@
+from typing import List
+
 from aiomax.api_methods.get_updates import GetUpdates
+from aiomax.api_methods.send_message import SendMessage
 from aiomax.client.client import MAXClient
 from aiomax.api_methods.get_messages import GetMessages
 from aiomax.api_methods.get_me import GetMe
@@ -28,24 +31,27 @@ class Bot:
     
     async def get_updates(self, **kwargs):
         return await self(GetUpdates(**kwargs))
+    async def send_message(self, **kwargs):
+        return await self(SendMessage(**kwargs))
     
-    async def start_polling(self):
+    async def start_polling(self, *, limit:int =100, timeout: int = 30, types: List[str]| None =None):
         self._is_running = True
-        while True:
+        while self._is_running:
             response = await self.get_updates(
                 marker = self._marker,
-                timeout=30
+                limit = limit,
+                timeout = timeout,
+                types = types
             )
             updates = response.get("updates",[])
             # print(updates)
             self._marker = response.get("marker")
             
             for update in updates:
-                await self.update_poll(update)
-
+                yield await self.update_poll(update)
 
     async def stop_polling(self):
         self._is_running = False
 
     async def update_poll(self, update:dict):
-        print(update)
+        return update
