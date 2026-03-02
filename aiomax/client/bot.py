@@ -5,6 +5,7 @@ from aiomax.api_methods.send_message import SendMessage
 from aiomax.client.client import MAXClient
 from aiomax.api_methods.get_messages import GetMessages
 from aiomax.api_methods.get_me import GetMe
+from aiomax.models.user import BotInfo
 
 
 class Bot:
@@ -23,7 +24,7 @@ class Bot:
         return await self.client.request(method)
 
     # sugar methods
-    async def get_me(self):
+    async def get_me(self) -> BotInfo:
         return await self(GetMe())
 
     async def get_messages(self, **kwargs):
