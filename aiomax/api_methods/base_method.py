@@ -3,10 +3,12 @@ from typing import Dict, Any, Optional, Type
 
 from pydantic import BaseModel
 
+from aiomax.enums.request_metod import RequestMethod
+
 
 class BaseMethod(ABC):
     path: str
-    method: str = "GET"
+    method: str = RequestMethod.GET
     response_model: Optional[Type[BaseModel]] = None
 
     def __init__(self, params:Dict[str, Any] = None, json: Dict[str, Any]=None):
