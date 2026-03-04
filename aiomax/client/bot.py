@@ -1,11 +1,14 @@
 from typing import List
 
+from aiomax.api_methods.get_chats import GetChats
 from aiomax.api_methods.get_updates import GetUpdates
 from aiomax.api_methods.send_message import SendMessage
 from aiomax.client.client import MAXClient
 from aiomax.api_methods.get_messages import GetMessages
 from aiomax.api_methods.get_me import GetMe
 from aiomax.models.user import BotInfo
+from aiomax.models.chat import Chat
+
 
 
 class Bot:
@@ -32,6 +35,10 @@ class Bot:
     
     async def get_updates(self, **kwargs):
         return await self(GetUpdates(**kwargs))
+        
+    async def get_chats(self, **kwargs) ->Chat:
+        return await self(GetChats(**kwargs))
+    
     async def send_message(self, **kwargs):
         return await self(SendMessage(**kwargs))
     
