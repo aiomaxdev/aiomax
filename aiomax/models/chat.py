@@ -25,3 +25,6 @@ class Chat(BaseModel):
     link: Optional[str] = None
     description: Optional[str] = None
     dialog_with_user: Optional[UserWithPhoto] = None
+    chat_message_id: Optional[str] = None
+    pinned_message
+    
