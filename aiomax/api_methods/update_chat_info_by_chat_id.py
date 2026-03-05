@@ -7,7 +7,7 @@ from aiomax.models.chat import Chats
 
 class GetChatById(BaseMethod):
     path = ApiEnums.CHATS
-    method = RequestMethod.GET
+    method = RequestMethod.PATCH
     response_model = Chats
 
 

@@ -25,6 +25,7 @@ class MAXClient:
             raise RuntimeError("ClientSession не запущен. Вызови start().")
 
         data = method_obj.build()
+
         async with self._session.request(
             method=data["method"],
             url=f"{self.api_url}/{data['path']}",
@@ -32,7 +33,10 @@ class MAXClient:
             params=data.get("params"),
             json = data.get("json")
         ) as response:
+            print(data)
             raw =  await response.json()
+            if response.status >= 400:
+                raise RuntimeError(raw)
             if method_obj.response_model:
                 return method_obj.response_model.model_validate(raw)
             return raw

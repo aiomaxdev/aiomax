@@ -28,7 +28,7 @@ class Chat(BaseModel):
     chat_message_id: Optional[str] = None
     pinned_message: Optional[Message] = None
     
-class GetChatsResponse(BaseModel):
+class Chats(BaseModel):
     chats: List[Chat]
     marker: Optional[int] = None
 

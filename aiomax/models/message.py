@@ -21,39 +21,45 @@ class Recipient(BaseModel):
     chat_type: ChatType
     user_id: Optional[int]= None
 
-class BaseMarkupElement(BaseModel):
-    type: TextStyle
+class MarkupElementBase(BaseModel):
     from_: int = Field(..., alias="from")
     length: int
 
     model_config = {"populate_by_name": True}
 
 
-class LinkMarkupElement(BaseMarkupElement):
-    type: Literal[TextStyle.LINK]
-    url: str
-class StrongMarkupElement(BaseMarkupElement):
+class StrongMarkupElement(MarkupElementBase):
     type: Literal[TextStyle.STRONG]
 
-class EmphasizedMarkupElement(BaseMarkupElement):
+
+class EmphasizedMarkupElement(MarkupElementBase):
     type: Literal[TextStyle.EMPHASIZED]
 
-class MonospacedMarkupElement(BaseMarkupElement):
+
+class MonospacedMarkupElement(MarkupElementBase):
     type: Literal[TextStyle.MONOSPACED]
 
-class StrikethroughMarkupElement(BaseMarkupElement):
+
+class StrikethroughMarkupElement(MarkupElementBase):
     type: Literal[TextStyle.STRIKETHROUGH]
 
-class UnderlineMarkupElement(BaseMarkupElement):
+
+class UnderlineMarkupElement(MarkupElementBase):
     type: Literal[TextStyle.UNDERLINE]
 
-class MessageStat (BaseModel):
-    views:int
 
-class UserMentionMarkupElement(BaseMarkupElement):
+class LinkMarkupElement(MarkupElementBase):
+    type: Literal[TextStyle.LINK]
+    url: str
+
+
+class UserMentionMarkupElement(MarkupElementBase):
     type: Literal[TextStyle.USER_MENTION]
     user_link: Optional[str] = None
     user_id: Optional[int] = None
+
+class MessageStat (BaseModel):
+    views:int
 
 class MessageBody(BaseModel):
     mid: str
