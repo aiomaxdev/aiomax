@@ -3,8 +3,8 @@ from typing import Optional
 from aiomax.api_methods.base_method import BaseMethod
 from aiomax.enums.api_enums import ApiEnums
 from aiomax.enums.request_metod import RequestMethod
-from aiomax.models.chat import GetChatsResponse
-from aiomax.models.user import BotInfo
+from aiomax.models.chat import Chat, GetChatsResponse
+
 
 class GetChats(BaseMethod):
     path = ApiEnums.CHATS

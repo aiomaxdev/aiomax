@@ -6,7 +6,7 @@ from aiomax.enums.chat_status_enum import ChatStatus
 from aiomax.enums.chat_type import ChatType
 from aiomax.models.user import UserWithPhoto
 from aiomax.models.message import Message
-
+from datetime import datetime
 
 class ChatIcon(BaseModel):
     url:str
@@ -20,7 +20,7 @@ class Chat(BaseModel):
     last_event_time: int
     participants_count: int
     owner_id: Optional[int] = None
-    participants: Optional[Dict[str]]
+    participants: Optional[Dict[str, datetime]] = None
     is_public: bool
     link: Optional[str] = None
     description: Optional[str] = None
@@ -30,4 +30,5 @@ class Chat(BaseModel):
     
 class GetChatsResponse(BaseModel):
     chats: List[Chat]
-    marker: Optional[int]
+    marker: Optional[int] = None
+

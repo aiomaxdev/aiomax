@@ -28,6 +28,7 @@ class MAXClient:
         async with self._session.request(
             method=data["method"],
             url=f"{self.api_url}/{data['path']}",
+            
             params=data.get("params"),
             json = data.get("json")
         ) as response:

@@ -17,8 +17,9 @@ class BaseMethod(ABC):
 
 
     def build(self):
+        path_value = self.path.value if hasattr(self.path, "value") else self.path
         return {
-            "path": self.path,
+            "path": path_value,
             "method": self.method,
             "params": self.params or {},
             "json": self.json or {}

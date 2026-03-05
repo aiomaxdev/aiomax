@@ -1,8 +1,6 @@
+from enum import Enum
 
-import enum
-
-
-class ChatStatus(str, enum):
+class ChatStatus(str, Enum):
 
     ACTIVE = "active"
     REMOVED = "removed"

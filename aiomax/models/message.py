@@ -32,7 +32,20 @@ class BaseMarkupElement(BaseModel):
 class LinkMarkupElement(BaseMarkupElement):
     type: Literal[TextStyle.LINK]
     url: str
+class StrongMarkupElement(BaseMarkupElement):
+    type: Literal[TextStyle.STRONG]
 
+class EmphasizedMarkupElement(BaseMarkupElement):
+    type: Literal[TextStyle.EMPHASIZED]
+
+class MonospacedMarkupElement(BaseMarkupElement):
+    type: Literal[TextStyle.MONOSPACED]
+
+class StrikethroughMarkupElement(BaseMarkupElement):
+    type: Literal[TextStyle.STRIKETHROUGH]
+
+class UnderlineMarkupElement(BaseMarkupElement):
+    type: Literal[TextStyle.UNDERLINE]
 
 class MessageStat (BaseModel):
     views:int
@@ -64,14 +77,17 @@ class MessageBody(BaseModel):
 
     markup: Optional[List[Annotated[
         Union[
-            BaseMarkupElement,        # обычные стили: STRONG, EMPHASIZED, MONOSPACED, STRIKETHROUGH, UNDERLINE
-            LinkMarkupElement,        # link
-            UserMentionMarkupElement  # user_mention
+            StrongMarkupElement,
+            EmphasizedMarkupElement,
+            MonospacedMarkupElement,
+            StrikethroughMarkupElement,
+            UnderlineMarkupElement,
+            LinkMarkupElement,
+            UserMentionMarkupElement
         ],
         Field(discriminator="type")
     ]]] = None
         
-    
 class LinkedMessage(BaseModel):
     type: MessageLinkType
     sender: Optional[User]= None

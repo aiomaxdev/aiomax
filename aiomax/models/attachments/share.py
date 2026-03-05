@@ -7,7 +7,7 @@ from aiomax.models.attachments.payloads import ShareAttachmentPayload
 
 
 class ShareAttachment(BaseModel):
-    type: Literal[AttachmentType.AUDIO]
+    type: Literal[AttachmentType.SHARE]
     payload: ShareAttachmentPayload
     title: Optional[str]= None
     description: Optional[str]= None
