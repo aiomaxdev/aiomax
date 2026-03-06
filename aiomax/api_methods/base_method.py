@@ -11,7 +11,16 @@ class BaseMethod(ABC):
     method: str = RequestMethod.GET
     response_model: Optional[Type[BaseModel]] = None
 
-    def __init__(self, params:Dict[str, Any] = None, json: Dict[str, Any]=None):
+    def __init__(
+        self,
+        *,
+        path: Optional[str] = None,
+        params: Optional[Dict[str, Any]] = None,
+        json: Optional[Dict[str, Any]] = None
+    ):
+        if path is not None:
+            self.path = path
+
         self.params: Dict[str, Any] = params or {}
         self.json: Dict[str, Any] = json or {}
 

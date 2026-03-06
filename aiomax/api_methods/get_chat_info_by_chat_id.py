@@ -5,7 +5,7 @@ from aiomax.enums.api_enums import ApiEnums
 from aiomax.enums.request_metod import RequestMethod
 from aiomax.models.chat import Chats 
 
-class GetChatById(BaseMethod):
+class GetChatInfoById(BaseMethod):
     path = ApiEnums.CHATS
     method = RequestMethod.GET
     response_model = Chats

@@ -104,7 +104,7 @@ class Message(BaseModel):
     sender: Optional[User]= None
     recipient: Recipient
     timestamp: int
-    link: LinkedMessage
+    link: Optional[LinkedMessage]= None
     body: MessageBody
     stat: Optional[MessageStat]= None
     url: Optional[str]= None

@@ -1,8 +1,9 @@
 from typing import List
 
-from aiomax.api_methods.get_chat_info_by_chat_id import GetChatById
+from aiomax.api_methods.get_chat_info_by_chat_id import GetChatInfoById
 from aiomax.api_methods.get_chats import GetChats
 from aiomax.api_methods.get_updates import GetUpdates
+from aiomax.api_methods.patch_chat_info_by_chat_id import PatchChatInfoById
 from aiomax.api_methods.send_message import SendMessage
 from aiomax.client.client import MAXClient
 from aiomax.api_methods.get_messages import GetMessages
@@ -41,11 +42,11 @@ class Bot:
         return await self(GetChats(**kwargs))
     
     async def get_chat_info_by_chat_id(self, **kwargs) -> Chat:
-        result = await self(GetChatById(**kwargs))  
+        result = await self(GetChatInfoById(**kwargs))  
         return result.chats[0]    
     
-    async def update_chat_info_by_chat_id(self, **kwargs) -> Chat:
-        return await self(GetChatById(**kwargs))  
+    async def patch_chat_info_by_chat_id(self, **kwargs) -> Chat:
+        return await self(PatchChatInfoById(**kwargs))  
     
     async def send_message(self, **kwargs):
         return await self(SendMessage(**kwargs))
