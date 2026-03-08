@@ -1,10 +1,12 @@
 from aiomax.api_methods.base_method import BaseMethod
 from typing import Optional, List
 
+from aiomax.enums.request_metod import RequestMethod
+
 
 class GetUpdates(BaseMethod):
     path = "updates"
-    method = "GET"
+    method = RequestMethod.GET
 
     def __init__(
         self,

@@ -16,7 +16,7 @@ class Chat(BaseModel):
     type: ChatType
     status: ChatStatus
     title: Optional[str] = None
-    icon: ChatIcon
+    icon: Optional[ChatIcon] = None
     last_event_time: int
     participants_count: int
     owner_id: Optional[int] = None

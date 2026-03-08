@@ -1,5 +1,6 @@
 from typing import List
 
+from aiomax.api_methods.delete_chat_by_chat_id import DeleteChatById
 from aiomax.api_methods.get_chat_info_by_chat_id import GetChatInfoById
 from aiomax.api_methods.get_chats import GetChats
 from aiomax.api_methods.get_updates import GetUpdates
@@ -28,7 +29,7 @@ class Bot:
     async def __call__(self, method):
         return await self.client.request(method)
 
-    # sugar methods
+    # сахарок
     async def get_me(self) -> BotInfo:
         return await self(GetMe())
 
@@ -43,10 +44,13 @@ class Bot:
     
     async def get_chat_info_by_chat_id(self, **kwargs) -> Chat:
         result = await self(GetChatInfoById(**kwargs))  
-        return result.chats[0]    
+        return result   
     
     async def patch_chat_info_by_chat_id(self, **kwargs) -> Chat:
         return await self(PatchChatInfoById(**kwargs))  
+    
+    async def delete_chat_by_chat_id(self, **kwargs):
+        return await self(DeleteChatById(**kwargs))  
     
     async def send_message(self, **kwargs):
         return await self(SendMessage(**kwargs))

@@ -15,7 +15,7 @@ class DeleteChatById(BaseMethod):
                  *, 
                  chat_id: int | None = None,
                  ):
-        params = {}
+
         path = f"{ApiEnums.CHATS.value}/{chat_id}"
 
         super().__init__(path=path)

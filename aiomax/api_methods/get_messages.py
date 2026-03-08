@@ -1,9 +1,11 @@
 from aiomax.api_methods.base_method import BaseMethod
 from typing import List
 
+from aiomax.enums.request_metod import RequestMethod
+
 class GetMessages(BaseMethod):
     path = "messages"
-    method = "GET"
+    method = RequestMethod.GET
 
     def __init__(self, *, chat_id: str = None, message_ids: List[str] = None):
         if chat_id and message_ids:
