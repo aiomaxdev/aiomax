@@ -1,0 +1,18 @@
+site_name: aiomax
+site_description: Async Python client for MAX messenger API
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+
+nav:
+  - Home: index.md
+  - Bot API: bot.md
+  - Methods: api.md
