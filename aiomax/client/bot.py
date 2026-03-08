@@ -10,7 +10,7 @@ from aiomax.client.client import MAXClient
 from aiomax.api_methods.get_messages import GetMessages
 from aiomax.api_methods.get_me import GetMe
 from aiomax.models.user import BotInfo
-from aiomax.models.chat import Chat, Chats
+from aiomax.models.chat import Chat, ChatDelete, Chats
 
 
 
@@ -43,13 +43,12 @@ class Bot:
         return await self(GetChats(**kwargs))
     
     async def get_chat_info_by_chat_id(self, **kwargs) -> Chat:
-        result = await self(GetChatInfoById(**kwargs))  
-        return result   
+        return await self(GetChatInfoById(**kwargs))    
     
     async def patch_chat_info_by_chat_id(self, **kwargs) -> Chat:
         return await self(PatchChatInfoById(**kwargs))  
     
-    async def delete_chat_by_chat_id(self, **kwargs):
+    async def delete_chat_by_chat_id(self, **kwargs)->ChatDelete:
         return await self(DeleteChatById(**kwargs))  
     
     async def send_message(self, **kwargs):

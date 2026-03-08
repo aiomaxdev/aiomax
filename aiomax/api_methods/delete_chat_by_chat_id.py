@@ -4,11 +4,11 @@ from typing import Any, Dict, List, Optional
 from aiomax.enums.api_enums import ApiEnums
 from aiomax.enums.request_metod import RequestMethod
 from aiomax.models.attachments.image import PhotoAttachmentRequestPayload
-from aiomax.models.chat import Chat
+from aiomax.models.chat import Chat, ChatDelete
 
 class DeleteChatById(BaseMethod):
     method = RequestMethod.DELETE
-    response_model = Chat
+    response_model = ChatDelete
 
 
     def __init__(self, 
