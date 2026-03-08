@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aiomax"
+version = "0.1.0"
+description = "Async Max framework"
+authors = [
+    { name="Your Name", email="you@example.com" }
+]
+dependencies = [
+    "aiohttp>=3.8",
+    "pydantic>=2.5"   # <-- добавляем сюда
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
