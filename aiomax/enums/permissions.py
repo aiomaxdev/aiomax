@@ -11,3 +11,5 @@ class ChatAdminPermission(str, Enum):
     EDIT = "edit"
     DELETE = "delete"
     EDIT_LINK = "edit_link"
+    VIEW_STATS = "view_stats"
+    CAN_CALL = "can_call" 

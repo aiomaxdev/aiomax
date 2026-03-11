@@ -1,7 +1,9 @@
 from typing import List
 
+from aiomax.api_methods.delete_bot_from_chat import DeleteBotFromChat
 from aiomax.api_methods.delete_chat_by_chat_id import DeleteChatById
 from aiomax.api_methods.delete_pin_message import DeletePinMessage
+from aiomax.api_methods.get_chat_admins import GetMembersFromChats
 from aiomax.api_methods.get_chat_info_by_chat_id import GetChatInfoById
 from aiomax.api_methods.get_chats import GetChats
 from aiomax.api_methods.get_me_from_chats import GetMeFromChats
@@ -15,7 +17,7 @@ from aiomax.client.client import MAXClient
 from aiomax.api_methods.get_messages import GetMessages
 from aiomax.api_methods.get_me import GetMe
 from aiomax.models.message import Message
-from aiomax.models.response_status import ResponseStatus
+from aiomax.models.response_status import GetChatAdminsResponse, ResponseStatus
 from aiomax.models.user import BotInfo, ChatMember
 from aiomax.models.chat import Chat, Chats
 
@@ -75,6 +77,12 @@ class Bot:
     
     async def get_me_from_chat(self, **kwargs) -> ChatMember:
         return await self(GetMeFromChats(**kwargs))
+    
+    async def delete_bot_from_chat(self, **kwargs) -> ResponseStatus:
+        return await self(DeleteBotFromChat(**kwargs))
+    
+    async def get_admins_from_chat(self, **kwargs) -> GetChatAdminsResponse:
+        return await self(GetMembersFromChats(**kwargs))
     
     async def start_polling(self, *, limit:int =100, timeout: int = 30, types: List[str]| None =None):
         self._is_running = True
