@@ -7,7 +7,7 @@ class GetMessages(BaseMethod):
     path = "messages"
     method = RequestMethod.GET
 
-    def __init__(self, *, chat_id: str = None, message_ids: List[str] = None):
+    def __init__(self, *, chat_id: int | None = None, message_ids: List[str] = None):
         if chat_id and message_ids:
             raise ValueError("Нельзя передавать одновременно chat_id и message_ids")
 

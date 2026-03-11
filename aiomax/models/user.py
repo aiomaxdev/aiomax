@@ -1,7 +1,8 @@
 from typing import List, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
+from aiomax.enums.permissions import ChatAdminPermission
 from aiomax.models.command import BotCommand
 
 class User(BaseModel):
@@ -20,3 +21,11 @@ class UserWithPhoto(User):
 
 class BotInfo(UserWithPhoto):
     commands: Optional[List[BotCommand]] = None
+
+class ChatMember(BaseModel):
+    last_access_time: int
+    is_owner: bool
+    is_admin: bool
+    join_time: int
+    permissions: List[ChatAdminPermission | str] = Field(default_factory=list)
+    alias: Optional[str] = None

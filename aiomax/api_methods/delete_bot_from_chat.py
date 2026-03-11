@@ -3,10 +3,9 @@ from typing import Any, Dict, List, Optional
 
 from aiomax.enums.api_enums import ApiEnums
 from aiomax.enums.request_metod import RequestMethod
-from aiomax.models.attachments.image import PhotoAttachmentRequestPayload
 from aiomax.models.response_status import ResponseStatus
 
-class DeleteChatById(BaseMethod):
+class DeleteBotFromChat(BaseMethod):
     method = RequestMethod.DELETE
     response_model = ResponseStatus
 
@@ -16,6 +15,6 @@ class DeleteChatById(BaseMethod):
                  chat_id: int | None = None,
                  ):
 
-        path = f"{ApiEnums.CHATS.value}/{chat_id}"
+        path = f"{ApiEnums.CHATS.value}/{chat_id}/members/me"
 
         super().__init__(path=path)

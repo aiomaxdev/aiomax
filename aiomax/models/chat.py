@@ -31,8 +31,3 @@ class Chat(BaseModel):
 class Chats(BaseModel):
     chats: List[Chat]
     marker: Optional[int] = None
-
-
-class ChatDelete(BaseModel):
-    success:bool
-    message: Optional[str] = None
