@@ -1,19 +1,22 @@
 from typing import List
 
 from aiomax.api_methods.delete_chat_by_chat_id import DeleteChatById
+from aiomax.api_methods.delete_pin_message import DeletePinMessage
 from aiomax.api_methods.get_chat_info_by_chat_id import GetChatInfoById
 from aiomax.api_methods.get_chats import GetChats
+from aiomax.api_methods.get_me_from_chats import GetMeFromChats
 from aiomax.api_methods.get_pinned_message import GetPinnedMessage
 from aiomax.api_methods.get_updates import GetUpdates
 from aiomax.api_methods.patch_chat_info_by_chat_id import PatchChatInfoById
 from aiomax.api_methods.post_chat_actions import SendAction
+from aiomax.api_methods.put_pin_message_to_chat import PutPimMessage
 from aiomax.api_methods.send_message import SendMessage
 from aiomax.client.client import MAXClient
 from aiomax.api_methods.get_messages import GetMessages
 from aiomax.api_methods.get_me import GetMe
 from aiomax.models.message import Message
 from aiomax.models.response_status import ResponseStatus
-from aiomax.models.user import BotInfo
+from aiomax.models.user import BotInfo, ChatMember
 from aiomax.models.chat import Chat, Chats
 
 
@@ -63,6 +66,15 @@ class Bot:
     
     async def get_pinned_message(self, **kwargs) ->Message:
         return await self(GetPinnedMessage(**kwargs))
+    
+    async def pin_message(self, **kwargs) ->ResponseStatus:
+        return await self(PutPimMessage(**kwargs))
+    
+    async def unpin_message(self, **kwargs) ->ResponseStatus:
+        return await self(DeletePinMessage(**kwargs))
+    
+    async def get_me_from_chat(self, **kwargs) -> ChatMember:
+        return await self(GetMeFromChats(**kwargs))
     
     async def start_polling(self, *, limit:int =100, timeout: int = 30, types: List[str]| None =None):
         self._is_running = True
