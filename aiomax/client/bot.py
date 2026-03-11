@@ -11,6 +11,7 @@ from aiomax.api_methods.get_pinned_message import GetPinnedMessage
 from aiomax.api_methods.get_updates import GetUpdates
 from aiomax.api_methods.patch_chat_info_by_chat_id import PatchChatInfoById
 from aiomax.api_methods.post_chat_actions import SendAction
+from aiomax.api_methods.post_chat_admins import PostChatAdmins
 from aiomax.api_methods.put_pin_message_to_chat import PutPimMessage
 from aiomax.api_methods.send_message import SendMessage
 from aiomax.client.client import MAXClient
@@ -83,6 +84,9 @@ class Bot:
     
     async def get_admins_from_chat(self, **kwargs) -> GetChatAdminsResponse:
         return await self(GetMembersFromChats(**kwargs))
+    
+    async def add_admins_to_chat(self, **kwargs) -> ResponseStatus:
+        return await self(PostChatAdmins(**kwargs))
     
     async def start_polling(self, *, limit:int =100, timeout: int = 30, types: List[str]| None =None):
         self._is_running = True

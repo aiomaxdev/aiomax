@@ -29,3 +29,9 @@ class ChatMember(BaseModel):
     join_time: int
     permissions: List[ChatAdminPermission | str] = Field(default_factory=list)
     alias: Optional[str] = None
+
+
+class ChatAdmin(BaseModel):
+    user_id: int
+    permissions: List[ChatAdminPermission | str] = Field(default_factory=list)
+    alias: Optional[str] = None
