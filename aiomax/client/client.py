@@ -1,6 +1,12 @@
 import aiohttp
 from typing import Any, Dict
 
+class AiomaxAPIError(Exception):
+    def __init__(self, code: str, message: str, raw: dict):
+        self.code = code
+        self.message = message
+        self.raw = raw
+        super().__init__(f"{code}: {message}")
 
 class MAXClient:
     def __init__(self, token: str, api_url: str = "https://platform-api.max.ru"):
@@ -36,6 +42,10 @@ class MAXClient:
             print(data)
             raw =  await response.json()
             if response.status >= 400:
+            # если API вернул код и сообщение, создаём AiomaxAPIError
+                if isinstance(raw, dict) and "code" in raw and "message" in raw:
+                    raise AiomaxAPIError(code=raw["code"], message=raw["message"], raw=raw)
+                # иначе просто RuntimeError
                 raise RuntimeError(raw)
             if method_obj.response_model:
                 return method_obj.response_model.model_validate(raw)

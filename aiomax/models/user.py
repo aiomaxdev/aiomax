@@ -22,7 +22,7 @@ class UserWithPhoto(User):
 class BotInfo(UserWithPhoto):
     commands: Optional[List[BotCommand]] = None
 
-class ChatMember(BaseModel):
+class ChatMember(User):
     last_access_time: int
     is_owner: bool
     is_admin: bool
