@@ -3,7 +3,6 @@ from typing import Any, Dict, List, Optional
 
 from aiomax.enums.api_enums import ApiEnums
 from aiomax.enums.request_metod import RequestMethod
-from aiomax.models.attachments.image import PhotoAttachmentRequestPayload
 from aiomax.models.response_status import ResponseStatus
 
 class DeleteChatById(BaseMethod):

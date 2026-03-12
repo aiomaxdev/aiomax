@@ -1,16 +1,18 @@
 from aiomax.api_methods.base_method import BaseMethod
-from typing import List
+from typing import List, Optional
 
 from aiomax.enums.api_enums import ApiEnums
 from aiomax.enums.request_metod import RequestMethod
+from aiomax.models.response_status import GetMessagesResponse
 
 class GetMessages(BaseMethod):
     method = RequestMethod.GET
+    response_model = GetMessagesResponse
 
     def __init__(self, 
                  *, 
                  chat_id: int | None = None, 
-                 message_ids: List[str] = None,
+                 message_ids: Optional[List[str]] = None,
                  from_timestamp: int | None = None,
                  to_timestamp: int | None = None,
                  count: int | None = None

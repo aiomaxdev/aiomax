@@ -26,3 +26,6 @@ class AddMembersToChat(BaseModel):
     message: Optional[str] = None
     failed_user_ids: Optional[List[int]] = None
     failed_user_details: Optional[List[FailedUserDetail]] = None
+
+class GetMessagesResponse(BaseModel):
+    messages: List[Message]
