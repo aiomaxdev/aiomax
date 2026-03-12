@@ -1,13 +1,21 @@
 from aiomax.api_methods.base_method import BaseMethod
 from typing import List
 
+from aiomax.enums.api_enums import ApiEnums
 from aiomax.enums.request_metod import RequestMethod
 
 class GetMessages(BaseMethod):
-    path = "messages"
     method = RequestMethod.GET
 
-    def __init__(self, *, chat_id: int | None = None, message_ids: List[str] = None):
+    def __init__(self, 
+                 *, 
+                 chat_id: int | None = None, 
+                 message_ids: List[str] = None,
+                 from_timestamp: int | None = None,
+                 to_timestamp: int | None = None,
+                 count: int | None = None
+
+                 ):
         if chat_id and message_ids:
             raise ValueError("Нельзя передавать одновременно chat_id и message_ids")
 
@@ -18,4 +26,12 @@ class GetMessages(BaseMethod):
             params["chat_id"] = chat_id
         else:
             params["message_ids"] = ",".join(message_ids)
-        super().__init__(params = params)
+        if from_timestamp is not None:
+            params["from"] = from_timestamp
+        if to_timestamp is not None:
+            params["to"] = to_timestamp
+        if count is not None:
+            params["count"] = count
+        path = f"{ApiEnums.MESSAGES.value}"
+
+        super().__init__(path=path, params = params)

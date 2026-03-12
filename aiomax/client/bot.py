@@ -2,6 +2,7 @@ from typing import List
 
 from aiomax.api_methods.delete_bot_from_chat import DeleteBotFromChat
 from aiomax.api_methods.delete_chat_by_chat_id import DeleteChatById
+from aiomax.api_methods.delete_member_from_chat import DeleteMemberFromChat
 from aiomax.api_methods.delete_permissions_from_chat import DeletePermissionsFromChat
 from aiomax.api_methods.delete_pin_message import DeletePinMessage
 from aiomax.api_methods.get_chat_admins import GetAdminsFromChats
@@ -99,6 +100,9 @@ class Bot:
     
     async def add_members_to_chat(self, **kwargs):
         return await self(PostChatMembers(**kwargs))
+    
+    async def delete_members_from_chat(self, **kwargs) -> ResponseStatus:
+        return await self(DeleteMemberFromChat(**kwargs))
 
     async def start_polling(self, *, limit:int =100, timeout: int = 30, types: List[str]| None =None):
         self._is_running = True
