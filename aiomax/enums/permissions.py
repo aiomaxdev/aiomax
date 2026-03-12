@@ -13,3 +13,6 @@ class ChatAdminPermission(str, Enum):
     EDIT_LINK = "edit_link"
     VIEW_STATS = "view_stats"
     CAN_CALL = "can_call" 
+    POST_EDIT_DELET_MESSAGE= "post_edit_delete_message"
+    EDIT_MESSAGE = "edit_message"
+    DELETE_MESSAGE = "delete_message"

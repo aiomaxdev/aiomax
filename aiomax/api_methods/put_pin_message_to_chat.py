@@ -13,7 +13,7 @@ class PutPimMessage(BaseMethod):
                  *, 
                  chat_id: int | None = None,
                  message_id:str,
-                 notify: Optional[bool]=None
+                 notify: bool | None = None
                  ):
         params = {}
         path = f"{ApiEnums.CHATS.value}/{chat_id}/pin"

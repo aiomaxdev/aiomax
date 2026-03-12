@@ -22,10 +22,16 @@ class UserWithPhoto(User):
 class BotInfo(UserWithPhoto):
     commands: Optional[List[BotCommand]] = None
 
-class ChatMember(BaseModel):
+class ChatMember(User):
     last_access_time: int
     is_owner: bool
     is_admin: bool
     join_time: int
+    permissions: List[ChatAdminPermission | str] = Field(default_factory=list)
+    alias: Optional[str] = None
+
+
+class ChatAdmin(BaseModel):
+    user_id: int
     permissions: List[ChatAdminPermission | str] = Field(default_factory=list)
     alias: Optional[str] = None
