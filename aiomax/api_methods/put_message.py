@@ -3,37 +3,28 @@ from aiomax.api_methods.base_method import BaseMethod
 from aiomax.enums.api_enums import ApiEnums
 from aiomax.enums.request_metod import RequestMethod
 from aiomax.models.attachments.attachments import Attachment
-from aiomax.models.response_status import MessageSendResponse
+from aiomax.models.response_status import ResponseStatus
 
 
-class SendMessage(BaseMethod):
-    method = RequestMethod.POST
-    response_model = MessageSendResponse
+class EditMessage(BaseMethod):
+    method = RequestMethod.PUT
+    response_model = ResponseStatus
 
     def __init__(
         self,
         *,
-        chat_id: int | None = None,
-        user_id: int | None = None,
-        disable_link_preview: bool | None = True,
+        message_id: int | None = None,
         text: str | None = None,
         attachments: Attachment | None = None, 
         link: dict[str, Any] | None = None,
         notify: bool | None = True,
         format: str | None = None,
     ):
-        if chat_id and user_id:
-            raise ValueError("Нельзя передавать одновременно chat_id и user_id")
-
-        if not chat_id and not user_id:
-            raise ValueError("Нужно передать либо chat_id, либо user_id")
 
         params: Dict[str, Any] = {}
 
-        if chat_id is not None:
-            params["chat_id"] = chat_id
-        else:
-            params["user_id"] = user_id
+        if message_id is not None:
+            params["message_id"] = message_id
 
         json_body: Dict[str, Any] = {}
 
@@ -48,9 +39,6 @@ class SendMessage(BaseMethod):
 
         if notify is not None:
             json_body["notify"] = notify
-
-        if disable_link_preview is not None:
-            json_body["disable_link_preview"] = disable_link_preview
 
         if format is not None:
             json_body["format"] = format

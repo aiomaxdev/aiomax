@@ -3,6 +3,7 @@ from typing import List
 from aiomax.api_methods.delete_bot_from_chat import DeleteBotFromChat
 from aiomax.api_methods.delete_chat_by_chat_id import DeleteChatById
 from aiomax.api_methods.delete_member_from_chat import DeleteMemberFromChat
+from aiomax.api_methods.delete_message import DeleteMessage
 from aiomax.api_methods.delete_permissions_from_chat import DeletePermissionsFromChat
 from aiomax.api_methods.delete_pin_message import DeletePinMessage
 from aiomax.api_methods.get_chat_admins import GetAdminsFromChats
@@ -10,19 +11,21 @@ from aiomax.api_methods.get_chat_info_by_chat_id import GetChatInfoById
 from aiomax.api_methods.get_chat_members import GetMembersFromChats
 from aiomax.api_methods.get_chats import GetChats
 from aiomax.api_methods.get_me_from_chats import GetMeFromChats
+from aiomax.api_methods.get_message import GetMessage
 from aiomax.api_methods.get_pinned_message import GetPinnedMessage
 from aiomax.api_methods.get_updates import GetUpdates
 from aiomax.api_methods.patch_chat_info_by_chat_id import PatchChatInfoById
 from aiomax.api_methods.post_add_members_to_chat import PostChatMembers
 from aiomax.api_methods.post_chat_actions import SendAction
 from aiomax.api_methods.post_chat_admins import PostChatAdmins
+from aiomax.api_methods.put_message import EditMessage
 from aiomax.api_methods.put_pin_message_to_chat import PutPimMessage
 from aiomax.api_methods.send_message import SendMessage
 from aiomax.client.client import MAXClient
 from aiomax.api_methods.get_messages import GetMessages
 from aiomax.api_methods.get_me import GetMe
 from aiomax.models.message import Message
-from aiomax.models.response_status import GetChatMemberResponse, ResponseStatus
+from aiomax.models.response_status import GetChatMemberResponse, MessageSendResponse, ResponseStatus
 from aiomax.models.user import BotInfo, ChatMember
 from aiomax.models.chat import Chat, Chats
 
@@ -65,7 +68,7 @@ class Bot:
     async def delete_chat_by_chat_id(self, **kwargs)->ResponseStatus:
         return await self(DeleteChatById(**kwargs))  
     
-    async def send_message(self, **kwargs):
+    async def send_message(self, **kwargs) -> MessageSendResponse:
         return await self(SendMessage(**kwargs))
     
     async def send_action(self, **kwargs)->ResponseStatus:
@@ -103,7 +106,16 @@ class Bot:
     
     async def delete_members_from_chat(self, **kwargs) -> ResponseStatus:
         return await self(DeleteMemberFromChat(**kwargs))
-
+    
+    async def edit_message(self, **kwargs) -> ResponseStatus:
+        return await self(EditMessage(**kwargs))
+    
+    async def delete_message(self, **kwargs) -> ResponseStatus:
+        return await self(DeleteMessage(**kwargs))
+    
+    async def get_message(self, **kwargs) -> Message:
+        return await self(GetMessage(**kwargs))
+    
     async def start_polling(self, *, limit:int =100, timeout: int = 30, types: List[str]| None =None):
         self._is_running = True
         while self._is_running:

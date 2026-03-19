@@ -8,7 +8,7 @@ from aiomax.enums.text_style_enum import TextStyle
 from aiomax.models.attachments.audio import AudioAttachment
 from aiomax.models.attachments.contact import ContactAttachment
 from aiomax.models.attachments.file import FileAttachment
-from aiomax.models.attachments.image import ImageAttachment
+from aiomax.models.attachments.image import ImageAttachment, PhotoAttachmentRequestPayload
 from aiomax.models.attachments.inline_keyboard import InlineKeyboardAttachment
 from aiomax.models.attachments.location import LocationAttachment
 from aiomax.models.attachments.share import ShareAttachment
@@ -27,7 +27,6 @@ class MarkupElementBase(BaseModel):
 
     model_config = {"populate_by_name": True}
 
-
 class StrongMarkupElement(MarkupElementBase):
     type: Literal[TextStyle.STRONG]
 
@@ -39,7 +38,6 @@ class EmphasizedMarkupElement(MarkupElementBase):
 class MonospacedMarkupElement(MarkupElementBase):
     type: Literal[TextStyle.MONOSPACED]
 
-
 class StrikethroughMarkupElement(MarkupElementBase):
     type: Literal[TextStyle.STRIKETHROUGH]
 
@@ -47,11 +45,9 @@ class StrikethroughMarkupElement(MarkupElementBase):
 class UnderlineMarkupElement(MarkupElementBase):
     type: Literal[TextStyle.UNDERLINE]
 
-
 class LinkMarkupElement(MarkupElementBase):
     type: Literal[TextStyle.LINK]
     url: str
-
 
 class UserMentionMarkupElement(MarkupElementBase):
     type: Literal[TextStyle.USER_MENTION]
@@ -109,3 +105,19 @@ class Message(BaseModel):
     stat: Optional[MessageStat]= None
     url: Optional[str]= None
 
+class NewMessageLink(BaseModel):
+    type: MessageLinkType
+    mid: str
+
+class AttachmentRequest(BaseModel):
+    type: str  
+    payload: PhotoAttachmentRequestPayload
+
+class NewMessageBody(BaseModel):
+    text: Optional[str] = Field(default=None, max_length=4000)
+    attachments: Optional[List[AttachmentRequest]] = None
+    link: Optional[NewMessageLink] = None
+
+    notify: Optional[bool] = True
+
+    format: Optional[Literal["markdown", "html"]] = None

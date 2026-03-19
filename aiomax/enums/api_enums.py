@@ -9,3 +9,4 @@ class ApiEnums(str, Enum):
     CHATS = "chats"
     MESSAGES = "messages"
     UPDATES = "updates"
+    ANSWERS = "answers"

@@ -29,3 +29,7 @@ class AddMembersToChat(BaseModel):
 
 class GetMessagesResponse(BaseModel):
     messages: List[Message]
+
+class MessageSendResponse(BaseModel):
+    message:Message
+
