@@ -1,4 +1,4 @@
-**aiomax** — асинхронный Python-клиент для работы с API мессенджера **MAX**.
+**aiomax** — асинхронный Python-фреймворк для создания ботов в мессенджере **MAX**.
 
 Библиотека построена на:
 
@@ -7,6 +7,14 @@
 - `pydantic`
 
 Она предоставляет удобный интерфейс для работы с чатами, сообщениями и событиями бота.
+
+## Основные возможности
+
+- ✅ **Диспетчеризация событий** — декораторы для обработки сообщений, callback и других событий
+- ✅ **Фильтры** — гибкая система фильтрации по тексту, командам, чатам, пользователям и типу контента
+- ✅ **FSM (Finite State Machine)** — управление состояниями для многошаговых диалогов
+- ✅ **Webhook и Polling** — поддержка обоих режимов получения обновлений
+- ✅ **Типизация** — полная типизация всех методов и моделей
 
 ---
 
@@ -28,26 +36,88 @@ pip install -e .
 
 # Быстрый старт
 
+## Простой эхо-бот
+
 ```python
 import asyncio
-from aiomax.client.bot import Bot
+from aiomax import Bot, F
 
-TOKEN = "YOUR_TOKEN"
+bot = Bot(token="YOUR_TOKEN")
+
+@bot.on_message(F.text.contains("привет"))
+async def handle_hello(update):
+    await bot.send_message(
+        chat_id=update.message.recipient.chat_id,
+        text="Привет! Как дела?"
+    )
+
+@bot.on_message()
+async def echo(update):
+    if update.message and update.message.body.text:
+        await bot.send_message(
+            chat_id=update.message.recipient.chat_id,
+            text=f"Вы написали: {update.message.body.text}"
+        )
 
 async def main():
-    bot = Bot(TOKEN)
-
     await bot.start()
-
-    me = await bot.get_me()
-    print(me)
-
-    chats = await bot.get_chats()
-    print(chats)
-
+    await bot.start_polling()
     await bot.close()
 
 asyncio.run(main())
+```
+
+## Бот с командами
+
+```python
+from aiomax import Bot, F
+
+bot = Bot(token="YOUR_TOKEN")
+
+@bot.on_message(F.command("start"))
+async def cmd_start(update):
+    await bot.send_message(
+        chat_id=update.message.recipient.chat_id,
+        text="Добро пожаловать!"
+    )
+
+@bot.on_message(F.command("help"))
+async def cmd_help(update):
+    await bot.send_message(
+        chat_id=update.message.recipient.chat_id,
+        text="/start - начать\n/help - помощь"
+    )
+```
+
+## Бот с FSM (многошаговая форма)
+
+```python
+from aiomax import Bot, F, StatesGroup, MemoryStorage, FSMManager
+
+bot = Bot(token="YOUR_TOKEN")
+fsm = FSMManager(MemoryStorage())
+
+class FormState(StatesGroup):
+    waiting_for_name = "waiting_for_name"
+    waiting_for_age = "waiting_for_age"
+
+@bot.on_message(F.command("register"))
+async def start_register(update):
+    await fsm.set_state(update, FormState.waiting_for_name)
+    await bot.send_message(chat_id=..., text="Введите имя:")
+
+@bot.on_message()
+async def handle_input(update):
+    state = await fsm.get_state(update)
+
+    if state == FormState.waiting_for_name:
+        await fsm.update_data(update, {"name": update.message.body.text})
+        await fsm.set_state(update, FormState.waiting_for_age)
+        await bot.send_message(chat_id=..., text="Введите возраст:")
+    elif state == FormState.waiting_for_age:
+        await fsm.update_data(update, {"age": update.message.body.text})
+        await fsm.clear(update)
+        await bot.send_message(chat_id=..., text="Регистрация завершена!")
 ```
 
 ---
@@ -271,64 +341,117 @@ asyncio.run(main())
 
 ---
 
-# Модели данных
+# Система фильтров
 
-Библиотека использует **Pydantic** для валидации данных.
-
-Пример модели чата:
+Фильтры позволяют гибко настраивать условия обработки сообщений:
 
 ```python
-class Chat(BaseModel):
-    chat_id: int
-    title: str
-    type: ChatType
-    participants_count: int
-    icon: ChatIcon | None = None
+from aiomax import Bot, F
+
+bot = Bot(token="YOUR_TOKEN")
+
+# Текстовые фильтры
+@bot.on_message(F.text.exact("привет"))      # точное совпадение
+@bot.on_message(F.text.contains("помощь"))   # содержит текст
+@bot.on_message(F.text.startswith("/"))      # начинается с
+@bot.on_message(F.text.endswith("!"))        # заканчивается на
+@bot.on_message(F.text.regex(r"\d+"))        # regex паттерн
+
+# Команды
+@bot.on_message(F.command("start"))          # команда /start
+@bot.on_message(F.command("help", prefix="!"))  # команда !help
+
+# Фильтры по чатам и пользователям
+@bot.on_message(F.chat(123456))              # только в чате с ID
+@bot.on_message(F.user(789012))              # только от пользователя
+
+# Callback данные
+@bot.on_callback(F.callback.data("buy"))     # точный callback
+@bot.on_callback(F.callback.contains("pay")) # содержит в callback
+
+# Тип контента
+@bot.on_message(F.content("image"))          # изображения
+@bot.on_message(F.content("video"))          # видео
+@bot.on_message(F.content("text"))           # текст
+
+# Комбинирование фильтров
+@bot.on_message(F.user(123) & F.text.contains("admin"))  # И
+@bot.on_message(F.text.contains("да") | F.text.contains("нет"))  # ИЛИ
+@bot.on_message(~F.text.contains("спам"))    # НЕ (инверсия)
 ```
 
 ---
 
-# Асинхронность
+# FSM (Finite State Machine)
 
-Все методы библиотеки являются **асинхронными**.
+Управление состояниями для многошаговых диалогов:
 
 ```python
-await bot.send_message(...)
+from aiomax import Bot, StatesGroup, State, MemoryStorage, FSMManager
+
+bot = Bot(token="YOUR_TOKEN")
+storage = MemoryStorage()
+fsm = FSMManager(storage)
+
+# Определение состояний
+class FormState(StatesGroup):
+    waiting_for_name = "waiting_for_name"
+    waiting_for_age = "waiting_for_age"
+    waiting_for_email = "waiting_for_email"
+
+# Начало формы
+@bot.on_message(F.command("register"))
+async def start_registration(update):
+    await fsm.set_state(update, FormState.waiting_for_name)
+    await bot.send_message(chat_id=..., text="Введите имя:")
+
+# Обработка ввода
+@bot.on_message()
+async def handle_form_input(update):
+    state = await fsm.get_state(update)
+
+    if state == FormState.waiting_for_name:
+        data = {"name": update.message.body.text}
+        await fsm.update_data(update, data)
+        await fsm.set_state(update, FormState.waiting_for_age)
+
+    elif state == FormState.waiting_for_age:
+        await fsm.update_data(update, {"age": update.message.body.text})
+        await fsm.set_state(update, FormState.waiting_for_email)
+
+    elif state == FormState.waiting_for_email:
+        await fsm.update_data(update, {"email": update.message.body.text})
+        await fsm.clear(update)  # Очистка состояния
 ```
-
-Это позволяет:
-
-* обрабатывать тысячи сообщений
-* не блокировать event loop
-* масштабировать ботов
 
 ---
 
-# Зависимости
+# Примеры
 
-Основные зависимости:
+Примеры ботов находятся в папке `examples/`:
 
-```
-aiohttp
-pydantic
-asyncio
-```
+| Файл | Описание |
+|------|----------|
+| `echo_bot.py` | Простой эхо-бот с фильтрами |
+| `fsm_bot.py` | Бот с многошаговой формой регистрации |
+| `callback_bot.py` | Бот с inline кнопками и callback |
+| `filtered_bot.py` | Бот с фильтрами по чатам и пользователям |
 
 ---
 
 # Планы развития
 
-* Webhook поддержка
-* Router система
-* Middleware
-* FSM
-* Фильтры сообщений
-* Типизированные события
+* [x] Диспетчеризация событий
+* [x] Фильтры сообщений
+* [x] FSM (Finite State Machine)
+* [x] Webhook поддержка
+* [ ] Router система
+* [ ] Middleware цепочки
+* [ ] Dependency injection
+* [ ] i18n/L10n поддержка
 
 ---
 
 # Лицензия
 
 MIT
-
-```

@@ -31,11 +31,11 @@ from aiomax.models.response_status import GetChatMemberResponse, MessageSendResp
 from aiomax.models.user import BotInfo, ChatMember
 from aiomax.models.chat import Chat, Chats
 from aiomax.models.update import Update
-from aiomax.handlers import Dispatcher
+from aiomax.dispatcher import Dispatcher
 from aiomax.enums.update_type import UpdateTypeEnum
-from aiomax.api_methods.get_subscriptions import GetSubscriptions
-from aiomax.api_methods.set_subscription import SetSubscription
-from aiomax.api_methods.delete_subscription import DeleteSubscription
+from aiomax.api_methods.webhook_methods.get_subscriptions import GetSubscriptions
+from aiomax.api_methods.webhook_methods.set_subscription import SetSubscription
+from aiomax.api_methods.webhook_methods.delete_subscription import DeleteSubscription
 from aiomax.models.webhook import SubscriptionsResponse, SubscriptionResponse
 
 
@@ -169,25 +169,74 @@ class Bot:
         self._is_running = False
 
     # Обработчики событий (декораторы)
-    def on_message(self, callback: Callable[[Update], Awaitable[Any]]) -> Callable:
-        """Декоратор для регистрации обработчика сообщений"""
-        return self.dispatcher.on_message(callback)
+    def on_message(self, *filters, **kwargs):
+        """
+        Декоратор для регистрации обработчика сообщений.
 
-    def on_callback(self, callback: Callable[[Update], Awaitable[Any]]) -> Callable:
-        """Декоратор для регистрации обработчика callback"""
-        return self.dispatcher.on_callback(callback)
+        Args:
+            *filters: Фильтры для применения к обработчику
 
-    def on_bot_started(self, callback: Callable[[Update], Awaitable[Any]]) -> Callable:
+        Example:
+            @bot.on_message(F.text.contains('привет'))
+            async def handle_hello(update):
+                ...
+
+            @bot.on_message()  # без фильтров - ловит все сообщения
+            async def handle_all(update):
+                ...
+        """
+        def decorator(callback: Callable[[Update], Awaitable[Any]]) -> Callable:
+            return self.dispatcher.register_handler(
+                UpdateTypeEnum.MESSAGE_CREATED,
+                callback,
+                list(filters)
+            )
+        return decorator
+
+    def on_callback(self, *filters, **kwargs):
+        """
+        Декоратор для регистрации обработчика callback.
+
+        Args:
+            *filters: Фильтры для применения к обработчику
+        """
+        def decorator(callback: Callable[[Update], Awaitable[Any]]) -> Callable:
+            return self.dispatcher.register_handler(
+                UpdateTypeEnum.MESSAGE_CALLBACK,
+                callback,
+                list(filters)
+            )
+        return decorator
+
+    def on_bot_started(self, *filters, **kwargs):
         """Декоратор для регистрации обработчика старта бота"""
-        return self.dispatcher.on_bot_started(callback)
+        def decorator(callback: Callable[[Update], Awaitable[Any]]) -> Callable:
+            return self.dispatcher.register_handler(
+                UpdateTypeEnum.BOT_STARTED,
+                callback,
+                list(filters)
+            )
+        return decorator
 
-    def on_message_edited(self, callback: Callable[[Update], Awaitable[Any]]) -> Callable:
+    def on_message_edited(self, *filters, **kwargs):
         """Декоратор для регистрации обработчика редактирования сообщения"""
-        return self.dispatcher.on_message_edited(callback)
+        def decorator(callback: Callable[[Update], Awaitable[Any]]) -> Callable:
+            return self.dispatcher.register_handler(
+                UpdateTypeEnum.MESSAGE_EDITED,
+                callback,
+                list(filters)
+            )
+        return decorator
 
-    def on_message_removed(self, callback: Callable[[Update], Awaitable[Any]]) -> Callable:
+    def on_message_removed(self, *filters, **kwargs):
         """Декоратор для регистрации обработчика удаления сообщения"""
-        return self.dispatcher.on_message_removed(callback)
+        def decorator(callback: Callable[[Update], Awaitable[Any]]) -> Callable:
+            return self.dispatcher.register_handler(
+                UpdateTypeEnum.MESSAGE_REMOVED,
+                callback,
+                list(filters)
+            )
+        return decorator
 
     def register_handler(
         self,

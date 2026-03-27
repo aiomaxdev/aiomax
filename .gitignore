@@ -1,3 +1,4 @@
+--- .gitignore 
 ```
 # Python
 __pycache__/
@@ -67,4 +68,28 @@ MANIFEST
 .Trashes
 ehthumbs.db
 Thumbs.db
+```
+
++++ .gitignore (修改后)
+```
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.swo
+coverage/
+htmlcov/
+.coverage
+.mypy_cache/
+.pytest_cache/
+.vscode/
+.idea/
+.env
+.env.local
+*.env.*
 ```
