@@ -1,7 +1,8 @@
-from typing import List, Optional, Callable, Awaitable, Any
+from typing import Dict, List, Optional, Callable, Awaitable, Any
 import asyncio
 from aiohttp import web
 
+from aiomax.api_methods.send_answer import SendAnswer
 from aiomax.api_methods.delete_bot_from_chat import DeleteBotFromChat
 from aiomax.api_methods.delete_chat_by_chat_id import DeleteChatById
 from aiomax.api_methods.delete_member_from_chat import DeleteMemberFromChat
@@ -129,7 +130,23 @@ class Bot:
 
     async def get_message(self, **kwargs) -> Message:
         return await self(GetMessage(**kwargs))
-
+    
+    async def answer_callback(
+        self,
+        *,
+        callback_id: str,
+        message: Optional[Dict[str, Any]] = None,
+        notification: Optional[str] = None,
+    ) -> ResponseStatus:
+        """Отправка ответа на callback кнопки"""
+        return await self(
+            SendAnswer(
+                callback_id=callback_id,
+                message=message,
+                notification=notification
+            )
+        )
+    
     # Webhook методы
     async def get_subscriptions(self) -> SubscriptionsResponse:
         """Получение списка подписок на Webhook"""

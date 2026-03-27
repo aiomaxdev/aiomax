@@ -11,6 +11,7 @@ from aiomax.models.attachments.file import FileAttachment
 from aiomax.models.attachments.image import ImageAttachment, PhotoAttachmentRequestPayload
 from aiomax.models.attachments.inline_keyboard import InlineKeyboardAttachment
 from aiomax.models.attachments.location import LocationAttachment
+from aiomax.models.attachments.request_payloads import AttachmentRequest
 from aiomax.models.attachments.share import ShareAttachment
 from aiomax.models.attachments.sticker import StickerAttachment
 from aiomax.models.attachments.video import VideoAttachment
@@ -109,9 +110,7 @@ class NewMessageLink(BaseModel):
     type: MessageLinkType
     mid: str
 
-class AttachmentRequest(BaseModel):
-    type: str  
-    payload: PhotoAttachmentRequestPayload
+
 
 class NewMessageBody(BaseModel):
     text: Optional[str] = Field(default=None, max_length=4000)

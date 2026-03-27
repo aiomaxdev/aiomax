@@ -50,7 +50,7 @@ async def send_buttons_example(update):
 
         # Создаем клавиатуру с разными типами кнопок
         keyboard = {
-            "inline_keyboard": [
+            "buttons": [
                 # Ряд с callback кнопками
                 [
                     {
@@ -178,7 +178,7 @@ async def handle_btn1_callback(update):
                 "attachments": [{
                     "type": "inline_keyboard",
                     "payload": {
-                        "inline_keyboard": [
+                        "buttons": [
                             [
                                 {
                                     "type": "callback",
@@ -254,7 +254,7 @@ async def combo_example(update):
         chat_id = update.message.recipient.chat_id
 
         keyboard = {
-            "inline_keyboard": [
+            "buttons": [
                 [
                     {
                         "type": "callback",
@@ -291,7 +291,7 @@ async def handle_edit_callback(update):
             "attachments": [{
                 "type": "inline_keyboard",
                 "payload": {
-                    "inline_keyboard": [
+                    "buttons": [
                         [
                             {
                                 "type": "callback",

@@ -92,8 +92,9 @@ async def show_menu(update):
     if update.message and update.message.recipient.chat_id:
         chat_id = update.message.recipient.chat_id
 
+        # ✅ Исправлено: ключ "buttons" внутри payload
         keyboard = {
-            "inline_keyboard": [
+            "buttons": [
                 [
                     {
                         "type": "callback",
@@ -139,7 +140,7 @@ async def handle_fast_reply(update):
                 "attachments": [{
                     "type": "inline_keyboard",
                     "payload": {
-                        "inline_keyboard": [
+                        "buttons": [
                             [
                                 {
                                     "type": "callback",
