@@ -1,7 +1,3 @@
---- docs/methods/pins.md (原始)
-
-
-+++ docs/methods/pins.md (修改后)
 # Pins
 
 Methods for pinning and unpinning messages.

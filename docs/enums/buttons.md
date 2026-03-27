@@ -1,7 +1,3 @@
---- docs/enums/buttons.md (原始)
-
-
-+++ docs/enums/buttons.md (修改后)
 # Button Types
 
 Types of buttons available for keyboards.

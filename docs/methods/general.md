@@ -1,7 +1,3 @@
---- docs/methods/general.md (原始)
-
-
-+++ docs/methods/general.md (修改后)
 # General Methods
 
 General utility methods for the bot.

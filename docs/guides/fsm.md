@@ -1,7 +1,3 @@
---- docs/guides/fsm.md (原始)
-
-
-+++ docs/guides/fsm.md (修改后)
 # Finite State Machine (FSM)
 
 FSM allows you to manage conversation states in your bot.

@@ -1,7 +1,3 @@
---- docs/models/chat.md (原始)
-
-
-+++ docs/models/chat.md (修改后)
 # Chat
 
 Represents a chat in MAX messenger.

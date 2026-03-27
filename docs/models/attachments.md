@@ -1,7 +1,3 @@
---- docs/models/attachments.md (原始)
-
-
-+++ docs/models/attachments.md (修改后)
 # Attachments
 
 Working with file attachments in MAX messenger.

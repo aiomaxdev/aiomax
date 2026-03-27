@@ -1,7 +1,3 @@
---- docs/enums/update_types.md (原始)
-
-
-+++ docs/enums/update_types.md (修改后)
 # Update Types
 
 Types of updates that can be received from MAX API.

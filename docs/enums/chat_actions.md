@@ -1,7 +1,3 @@
---- docs/enums/chat_actions.md (原始)
-
-
-+++ docs/enums/chat_actions.md (修改后)
 # Chat Actions
 
 Status indicators shown to users when bot is performing an action.

@@ -1,7 +1,3 @@
---- docs/models/user.md (原始)
-
-
-+++ docs/models/user.md (修改后)
 # User
 
 Represents a user in MAX messenger.

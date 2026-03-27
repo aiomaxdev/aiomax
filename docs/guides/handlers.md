@@ -1,7 +1,3 @@
---- docs/guides/handlers.md (原始)
-
-
-+++ docs/guides/handlers.md (修改后)
 # Handlers
 
 Handlers are functions that process incoming updates.

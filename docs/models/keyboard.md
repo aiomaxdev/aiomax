@@ -1,7 +1,3 @@
---- docs/models/keyboard.md (原始)
-
-
-+++ docs/models/keyboard.md (修改后)
 # Keyboard
 
 Keyboard markup for bot messages.

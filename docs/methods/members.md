@@ -1,7 +1,3 @@
---- docs/methods/members.md (原始)
-
-
-+++ docs/methods/members.md (修改后)
 # Members
 
 Methods for working with chat members.

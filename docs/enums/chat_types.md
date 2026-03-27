@@ -1,7 +1,3 @@
---- docs/enums/chat_types.md (原始)
-
-
-+++ docs/enums/chat_types.md (修改后)
 # Chat Types
 
 Available chat types in MAX messenger.

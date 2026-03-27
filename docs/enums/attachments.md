@@ -1,7 +1,3 @@
---- docs/enums/attachments.md (原始)
-
-
-+++ docs/enums/attachments.md (修改后)
 # Attachment Types
 
 Types of file attachments supported by MAX messenger.

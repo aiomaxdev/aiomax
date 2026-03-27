@@ -1,7 +1,3 @@
---- docs/guides/polling.md (原始)
-
-
-+++ docs/guides/polling.md (修改后)
 # Long Polling
 
 Long polling is the simplest way to receive updates from MAX API.

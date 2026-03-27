@@ -1,7 +1,3 @@
---- docs/methods/chats.md (原始)
-
-
-+++ docs/methods/chats.md (修改后)
 # Chats
 
 Methods for managing chats.

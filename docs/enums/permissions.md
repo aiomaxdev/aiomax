@@ -1,7 +1,3 @@
---- docs/enums/permissions.md (原始)
-
-
-+++ docs/enums/permissions.md (修改后)
 # Permissions
 
 Chat permissions for members.

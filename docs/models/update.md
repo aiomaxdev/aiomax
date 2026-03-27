@@ -1,7 +1,3 @@
---- docs/models/update.md (原始)
-
-
-+++ docs/models/update.md (修改后)
 # Update
 
 Represents an incoming update from MAX API.

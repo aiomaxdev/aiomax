@@ -1,7 +1,3 @@
---- docs/methods/webhooks.md (原始)
-
-
-+++ docs/methods/webhooks.md (修改后)
 # Webhooks
 
 Methods for managing webhooks.

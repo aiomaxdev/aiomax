@@ -1,7 +1,3 @@
---- docs/methods/admins.md (原始)
-
-
-+++ docs/methods/admins.md (修改后)
 # Admins
 
 Methods for managing chat administrators.

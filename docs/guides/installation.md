@@ -1,7 +1,3 @@
---- docs/guides/installation.md (原始)
-
-
-+++ docs/guides/installation.md (修改后)
 # Installation
 
 ## Requirements

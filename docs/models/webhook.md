@@ -1,7 +1,3 @@
---- docs/models/webhook.md (原始)
-
-
-+++ docs/models/webhook.md (修改后)
 # WebhookInfo
 
 Contains information about the current webhook status.

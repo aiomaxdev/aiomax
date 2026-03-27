@@ -1,7 +1,3 @@
---- docs/guides/filters.md (原始)
-
-
-+++ docs/guides/filters.md (修改后)
 # Filters
 
 Filters determine which updates should be processed by a handler.

@@ -1,7 +1,3 @@
---- docs/guides/webhook.md (原始)
-
-
-+++ docs/guides/webhook.md (修改后)
 # Webhook
 
 Webhooks allow MAX to push updates to your server in real-time.

@@ -1,7 +1,3 @@
---- docs/models/message.md (原始)
-
-
-+++ docs/models/message.md (修改后)
 # Message
 
 Represents a message in MAX messenger.

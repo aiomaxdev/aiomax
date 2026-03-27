@@ -1,7 +1,3 @@
---- docs/guides/quickstart.md (原始)
-
-
-+++ docs/guides/quickstart.md (修改后)
 # Quick Start
 
 ## Basic Bot Setup
