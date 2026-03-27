@@ -29,8 +29,10 @@ class SendAnswer(BaseMethod):
         json_body: Dict[str, Any] = {}
 
         if message is not None:
-            json_body["message"] = message.model_dump(exclude_none=True)
-
+            if isinstance(message, dict):
+                json_body["message"] = message
+            else:
+                json_body["message"] = message.model_dump(exclude_none=True)
         if notification is not None:
             json_body["notification"] = notification
 

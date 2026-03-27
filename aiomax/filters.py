@@ -178,7 +178,7 @@ class CallbackDataFilter(BaseFilter):
             return False
 
         # ✅ Теперь поле data точно есть в модели Callback
-        callback_data = update.callback.data or ""
+        callback_data = update.callback.payload or ""
 
         if self.data is not None and callback_data != self.data:
             return False

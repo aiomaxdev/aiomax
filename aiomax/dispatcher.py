@@ -174,6 +174,7 @@ class Dispatcher:
     
     async def dispatch(self, update_data: Dict[str, Any]) -> List[Any]:
         """Преобразование сырых данных в Update и обработка"""
+        print("UPDATE:", update_data)
         update = Update.from_dict(update_data)
         return await self.process_update(update)
 

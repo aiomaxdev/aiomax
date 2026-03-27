@@ -7,7 +7,7 @@ from aiomax.enums.update_type import UpdateTypeEnum
 
 class Callback(BaseModel):
     callback_id: str
-    data: Optional[str] = None  # ✅ Добавлено имя поля "data"
+    payload: Optional[str] = None 
 class Update(BaseModel):
     """Модель обновления от MAX API"""
     type: UpdateTypeEnum = Field(..., alias="update_type")
