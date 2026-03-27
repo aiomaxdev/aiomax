@@ -1,5 +1,5 @@
 site_name: aiomax
-site_description: Async Python client for MAX messenger API
+site_description: Асинхронный Python клиент для MAX messenger API
 
 theme:
   name: material
@@ -13,6 +13,37 @@ plugins:
             show_source: true
 
 nav:
-  - Home: index.md
-  - Bot API: bot.md
-  - Methods: api.md
+  - Главная: index.md
+  - Руководства:
+    - Установка: guides/installation.md
+    - Быстрый старт: guides/quickstart.md
+    - Долгий опрос (Long Polling): guides/polling.md
+    - Вебхук: guides/webhook.md
+    - Обработчики: guides/handlers.md
+    - Фильтры: guides/filters.md
+    - FSM (Состояния): guides/fsm.md
+    - Middleware: guides/middleware.md
+    - Примеры: guides/examples.md
+  - Модели:
+    - Сообщение: models/message.md
+    - Чат: models/chat.md
+    - Пользователь: models/user.md
+    - Обновление: models/update.md
+    - Информация о вебхуке: models/webhook.md
+    - Клавиатура: models/keyboard.md
+    - Вложения: models/attachments.md
+  - Методы:
+    - Общие: methods/general.md
+    - Сообщения: methods/messages.md
+    - Чаты: methods/chats.md
+    - Участники: methods/members.md
+    - Администраторы: methods/admins.md
+    - Закрепления: methods/pins.md
+    - Вебхуки: methods/webhooks.md
+  - Перечисления:
+    - Типы чатов: enums/chat_types.md
+    - Типы обновлений: enums/update_types.md
+    - Типы кнопок: enums/buttons.md
+    - Типы вложений: enums/attachments.md
+    - Права доступа: enums/permissions.md
+    - Действия с чатом: enums/chat_actions.md
