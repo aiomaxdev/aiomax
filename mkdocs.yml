@@ -1,22 +1,71 @@
 site_name: aiomax
 site_description: Асинхронный Python клиент для MAX messenger API
+site_url: https://aiomaxdev.github.io/aiomax/
+docs_dir: docs
+site_dir: site
 
 theme:
   name: material
+  language: ru
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Переключить на тёмную тему
+    - scheme: slate
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Переключить на светлую тему
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/aiomaxdev/aiomax
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/aiomax/
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - tables
+  - attr_list
 
 plugins:
-  - search
+  - search:
+      lang: ru
   - mkdocstrings:
       handlers:
         python:
           options:
             show_source: true
+            heading_level: 3
+            docstring_style: google
 
 nav:
   - Главная: index.md
   - Руководства:
     - Установка: guides/installation.md
     - Быстрый старт: guides/quickstart.md
+    - Bot (Клиент): guides/bot.md
     - Долгий опрос (Long Polling): guides/polling.md
     - Вебхук: guides/webhook.md
     - Обработчики: guides/handlers.md
