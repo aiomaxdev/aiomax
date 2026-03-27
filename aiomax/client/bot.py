@@ -21,7 +21,7 @@ from aiomax.api_methods.post_add_members_to_chat import PostChatMembers
 from aiomax.api_methods.post_chat_actions import SendAction
 from aiomax.api_methods.post_chat_admins import PostChatAdmins
 from aiomax.api_methods.put_message import EditMessage
-from aiomax.api_methods.put_pin_message_to_chat import PutPimMessage
+from aiomax.api_methods.put_pin_message_to_chat import PutPinMessage
 from aiomax.api_methods.send_message import SendMessage
 from aiomax.client.client import MAXClient
 from aiomax.api_methods.get_messages import GetMessages
@@ -91,7 +91,7 @@ class Bot:
         return await self(GetPinnedMessage(**kwargs))
 
     async def pin_message(self, **kwargs) ->ResponseStatus:
-        return await self(PutPimMessage(**kwargs))
+        return await self(PutPinMessage(**kwargs))
 
     async def unpin_message(self, **kwargs) ->ResponseStatus:
         return await self(DeletePinMessage(**kwargs))
@@ -152,17 +152,21 @@ class Bot:
         """Запуск long polling с автоматической диспетчеризацией обновлений"""
         self._is_running = True
         while self._is_running:
-            response = await self.get_updates(
-                marker = self._marker,
-                limit = limit,
-                timeout = timeout,
-                types = types
-            )
-            updates = response.get("updates",[])
-            self._marker = response.get("marker")
+            try:
+                response = await self.get_updates(
+                    marker = self._marker,
+                    limit = limit,
+                    timeout = timeout,
+                    types = types
+                )
+                updates = response.get("updates",[])
+                self._marker = response.get("marker")
 
-            for update_data in updates:
-                await self.dispatcher.dispatch(update_data)
+                for update_data in updates:
+                    await self.dispatcher.dispatch(update_data)
+            except Exception as e:
+                print(f"Polling error: {e}")
+                await asyncio.sleep(5)  
 
     async def stop_polling(self):
         """Остановка polling"""
@@ -247,21 +251,34 @@ class Bot:
         return self.dispatcher.register_handler(update_type, callback)
 
     # Webhook сервер
-    async def start_webhook(self, *, host: str = "0.0.0.0", port: int = 8080, path: str = "/webhook", secret: Optional[str] = None):
+    async def start_webhook(
+        self,
+        *,
+        host: str = "0.0.0.0",
+        port: int = 8080,
+        path: str = "/webhook",
+        webhook_url: Optional[str] = None,
+        secret: Optional[str] = None,
+    ):
         """Запуск webhook сервера"""
+
         self._webhook_app = web.Application()
         self._webhook_app.router.add_post(path, self._webhook_handler)
 
         self._webhook_runner = web.AppRunner(self._webhook_app)
         await self._webhook_runner.setup()
+
         site = web.TCPSite(self._webhook_runner, host, port)
         await site.start()
 
         print(f"Webhook server started at http://{host}:{port}{path}")
 
-        # Настраиваем подписку на webhook в MAX API
-        webhook_url = f"https://your-domain.com{path}"  # замените на ваш реальный URL
-        await self.set_subscription(url=webhook_url, secret=secret)
+        # если пользователь передал URL — регистрируем webhook
+        if webhook_url:
+            await self.set_subscription(
+                url=webhook_url,
+                secret=secret
+            )
 
     async def stop_webhook(self):
         """Остановка webhook сервера"""

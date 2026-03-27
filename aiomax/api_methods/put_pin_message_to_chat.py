@@ -4,7 +4,7 @@ from aiomax.enums.api_enums import ApiEnums
 from aiomax.enums.request_metod import RequestMethod
 from aiomax.models.response_status import ResponseStatus
 
-class PutPimMessage(BaseMethod):
+class PutPinMessage(BaseMethod):
     method = RequestMethod.PUT
     response_model = ResponseStatus
 
