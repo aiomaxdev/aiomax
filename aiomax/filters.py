@@ -5,6 +5,7 @@
 обработчики будут вызываться.
 """
 from abc import ABC, abstractmethod
+import re
 from typing import Any, Awaitable, Callable, Optional, Union
 from aiomax.models.update import Update
 
@@ -89,7 +90,7 @@ class TextFilter(BaseFilter):
         self.contains = contains
         self.startswith = startswith
         self.endswith = endswith
-        self.regex = regex
+        self._compiled = re.compile(regex) if regex else None
 
     async def check(self, update: Update) -> bool:
         if not update.message or not update.message.body:
@@ -111,10 +112,8 @@ class TextFilter(BaseFilter):
         if self.endswith is not None and not message_text.endswith(self.endswith):
             return False
 
-        if self.regex is not None:
-            import re
-            if not re.search(self.regex, message_text):
-                return False
+        if self._compiled and not self._compiled.search(message_text):
+            return False
 
         return True
 
@@ -190,15 +189,13 @@ class CallbackDataFilter(BaseFilter):
 
 
 class StateFilter(BaseFilter):
-    """Фильтр по состоянию FSM"""
-
-    def __init__(self, state: Optional[str]):
+    def __init__(self, state: Optional[str], fsm):
         self.state = state
+        self.fsm = fsm
 
     async def check(self, update: Update) -> bool:
-        # Проверка состояния будет реализована через middleware
-        # Здесь заглушка для совместимости
-        return True
+        current = await self.fsm.get_state(update.user_id, update.chat_id)
+        return current == self.state
 
 
 class ContentTypeFilter(BaseFilter):

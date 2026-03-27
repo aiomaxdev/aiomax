@@ -47,6 +47,7 @@ class Bot:
         self.dispatcher = Dispatcher()
         self._webhook_app: Optional[web.Application] = None
         self._webhook_runner: Optional[web.AppRunner] = None
+        self._webhook_secret: str | None = None
 
     async def start(self):
         await self.client.start()
@@ -151,96 +152,49 @@ class Bot:
     async def start_polling(self, *, limit:int =100, timeout: int = 30, types: List[str]| None =None):
         """Запуск long polling с автоматической диспетчеризацией обновлений"""
         self._is_running = True
-        while self._is_running:
-            try:
-                response = await self.get_updates(
-                    marker = self._marker,
-                    limit = limit,
-                    timeout = timeout,
-                    types = types
-                )
-                updates = response.get("updates",[])
-                self._marker = response.get("marker")
 
-                for update_data in updates:
-                    await self.dispatcher.dispatch(update_data)
-            except Exception as e:
-                print(f"Polling error: {e}")
-                await asyncio.sleep(5)  
+        try:
+            while self._is_running:
+                try:
+                    response = await self.get_updates(
+                        marker=self._marker,
+                        limit=limit,
+                        timeout=timeout,
+                        types=types
+                    )
 
-    async def stop_polling(self):
-        """Остановка polling"""
-        self._is_running = False
+                    updates = response.get("updates", [])
+                    self._marker = response.get("marker")
+
+                    if updates:
+                        await asyncio.gather(
+                            *(self.dispatcher.dispatch(update_data) for update_data in updates),
+                            return_exceptions=True
+                        )
+
+                except Exception:
+                    import traceback
+                    traceback.print_exc()
+                    await asyncio.sleep(5)
+
+        except asyncio.CancelledError:
+            pass
 
     # Обработчики событий (декораторы)
-    def on_message(self, *filters, **kwargs):
-        """
-        Декоратор для регистрации обработчика сообщений.
+    def on_message(self, *filters):
+        return self.dispatcher.on_message(*filters)
 
-        Args:
-            *filters: Фильтры для применения к обработчику
+    def on_callback(self, *filters):
+        return self.dispatcher.on_callback(*filters)
 
-        Example:
-            @bot.on_message(F.text.contains('привет'))
-            async def handle_hello(update):
-                ...
+    def on_bot_started(self, *filters):
+        return self.dispatcher.on_bot_started(*filters)
 
-            @bot.on_message()  # без фильтров - ловит все сообщения
-            async def handle_all(update):
-                ...
-        """
-        def decorator(callback: Callable[[Update], Awaitable[Any]]) -> Callable:
-            return self.dispatcher.register_handler(
-                UpdateTypeEnum.MESSAGE_CREATED,
-                callback,
-                list(filters)
-            )
-        return decorator
+    def on_message_edited(self, *filters):
+        return self.dispatcher.on_message_edited(*filters)
 
-    def on_callback(self, *filters, **kwargs):
-        """
-        Декоратор для регистрации обработчика callback.
-
-        Args:
-            *filters: Фильтры для применения к обработчику
-        """
-        def decorator(callback: Callable[[Update], Awaitable[Any]]) -> Callable:
-            return self.dispatcher.register_handler(
-                UpdateTypeEnum.MESSAGE_CALLBACK,
-                callback,
-                list(filters)
-            )
-        return decorator
-
-    def on_bot_started(self, *filters, **kwargs):
-        """Декоратор для регистрации обработчика старта бота"""
-        def decorator(callback: Callable[[Update], Awaitable[Any]]) -> Callable:
-            return self.dispatcher.register_handler(
-                UpdateTypeEnum.BOT_STARTED,
-                callback,
-                list(filters)
-            )
-        return decorator
-
-    def on_message_edited(self, *filters, **kwargs):
-        """Декоратор для регистрации обработчика редактирования сообщения"""
-        def decorator(callback: Callable[[Update], Awaitable[Any]]) -> Callable:
-            return self.dispatcher.register_handler(
-                UpdateTypeEnum.MESSAGE_EDITED,
-                callback,
-                list(filters)
-            )
-        return decorator
-
-    def on_message_removed(self, *filters, **kwargs):
-        """Декоратор для регистрации обработчика удаления сообщения"""
-        def decorator(callback: Callable[[Update], Awaitable[Any]]) -> Callable:
-            return self.dispatcher.register_handler(
-                UpdateTypeEnum.MESSAGE_REMOVED,
-                callback,
-                list(filters)
-            )
-        return decorator
+    def on_message_removed(self, *filters):
+        return self.dispatcher.on_message_removed(*filters)
 
     def register_handler(
         self,
@@ -264,7 +218,7 @@ class Bot:
 
         self._webhook_app = web.Application()
         self._webhook_app.router.add_post(path, self._webhook_handler)
-
+        self._webhook_secret = secret
         self._webhook_runner = web.AppRunner(self._webhook_app)
         await self._webhook_runner.setup()
 
@@ -291,8 +245,10 @@ class Bot:
         """Обработчик входящих webhook запросов"""
         try:
             # Проверяем секрет если указан
-            secret = request.headers.get("X-Max-Bot-Api-Secret")
-            # Здесь можно добавить проверку секрета если он был установлен
+            if self._webhook_secret:
+                secret = request.headers.get("X-Max-Bot-Api-Secret")
+                if secret != self._webhook_secret:
+                    return web.Response(status=403)
 
             data = await request.json()
 

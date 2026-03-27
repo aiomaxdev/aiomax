@@ -15,7 +15,10 @@ class MAXClient:
         self._session: aiohttp.ClientSession | None = None
 
     async def start(self):
+        timeout = aiohttp.ClientTimeout(total=30)
+
         self._session = aiohttp.ClientSession(
+            timeout=timeout,
             headers={
                 "Authorization": self.token,
                 "Content-Type": "application/json"

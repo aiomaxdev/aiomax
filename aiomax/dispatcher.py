@@ -1,8 +1,8 @@
 """
 Диспетчер для обработки обновлений.
 
-Вынесен из __init__.py в отдельный файл для лучшей организации кода.
 """
+import asyncio
 from typing import Callable, Awaitable, Dict, Any, List, Optional, Union
 from aiomax.models.update import Update
 from aiomax.enums.update_type import UpdateTypeEnum
@@ -153,33 +153,25 @@ class Dispatcher:
         return decorator
 
     async def process_update(self, update: Update) -> List[Any]:
-        """Обработка обновления"""
-        results = []
-
-        # Получаем handlers для конкретного типа
         handlers = self._handlers.get(update.type, [])
 
-        # Вызываем все зарегистрированные handlers, прошедшие фильтры
-        for handler in handlers:
+        async def run(handler):
             try:
                 if await handler.check(update):
-                    result = await handler.call(update)
-                    results.append(result)
-            except Exception as e:
-                # Логируем ошибку но продолжаем обработку
-                print(f"Error in handler for {update.type}: {e}")
+                    return await handler.call(update)
+            except Exception:
+                import traceback
+                traceback.print_exc()
 
-        # Вызываем default handler если есть
+        tasks = [run(handler) for handler in handlers]
+
         if self._default_handler:
-            try:
-                if await self._default_handler.check(update):
-                    result = await self._default_handler.call(update)
-                    results.append(result)
-            except Exception as e:
-                print(f"Error in default handler: {e}")
+            tasks.append(run(self._default_handler))
 
-        return results
+        results = await asyncio.gather(*tasks, return_exceptions=True)
 
+        return [r for r in results if r is not None]
+    
     async def dispatch(self, update_data: Dict[str, Any]) -> List[Any]:
         """Преобразование сырых данных в Update и обработка"""
         update = Update.from_dict(update_data)
