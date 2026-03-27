@@ -17,7 +17,7 @@ class SendMessage(BaseMethod):
         user_id: int | None = None,
         disable_link_preview: bool | None = True,
         text: str | None = None,
-        attachments: Attachment | None = None, 
+        attachments: Optional[List[Attachment]] = None,
         link: dict[str, Any] | None = None,
         notify: bool | None = True,
         format: str | None = None,

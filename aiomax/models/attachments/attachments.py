@@ -1,6 +1,6 @@
-from typing import Annotated, List, Optional, Union
-
-from pydantic import BaseModel, Field
+# aiomax/models/attachments/attachments.py
+from typing import Annotated, List, Union
+from pydantic import Field
 
 from aiomax.models.attachments.audio import AudioAttachment
 from aiomax.models.attachments.contact import ContactAttachment
@@ -12,19 +12,18 @@ from aiomax.models.attachments.share import ShareAttachment
 from aiomax.models.attachments.sticker import StickerAttachment
 from aiomax.models.attachments.video import VideoAttachment
 
-
-class Attachment(BaseModel):
-    items: Optional[List[Annotated[
-        Union[
-            ImageAttachment,
-            VideoAttachment,
-            AudioAttachment,
-            FileAttachment,
-            StickerAttachment,
-            ContactAttachment,
-            InlineKeyboardAttachment,
-            ShareAttachment,
-            LocationAttachment
-        ],
-        Field(discriminator="type")
-    ]]] = None
+# ✅ Type alias вместо класса
+Attachment = Annotated[
+    Union[
+        ImageAttachment,
+        VideoAttachment,
+        AudioAttachment,
+        FileAttachment,
+        StickerAttachment,
+        ContactAttachment,
+        InlineKeyboardAttachment,
+        ShareAttachment,
+        LocationAttachment
+    ],
+    Field(discriminator="type")
+]

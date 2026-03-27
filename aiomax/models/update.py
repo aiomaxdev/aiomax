@@ -5,11 +5,15 @@ from aiomax.models.user import User
 from aiomax.enums.update_type import UpdateTypeEnum
 
 
+class Callback(BaseModel):
+    callback_id: str
+    data: Optional[str] = None  # ✅ Добавлено имя поля "data"
 class Update(BaseModel):
     """Модель обновления от MAX API"""
     type: UpdateTypeEnum = Field(..., alias="update_type")
     timestamp: int
     message: Optional[Message] = None
+    callback: Optional[Callback] = None 
     user: Optional[User] = None
     chat_id: Optional[int] = None
     user_id: Optional[int] = None
@@ -38,6 +42,12 @@ class Update(BaseModel):
                 message = Message.model_validate(raw_data["message"])
             except Exception:
                 pass
+        callback = None
+        if "callback" in raw_data and raw_data["callback"]:
+            try:
+                callback = Callback.model_validate(raw_data["callback"])
+            except Exception:
+                pass
 
         # Пытаемся распарсить пользователя если есть
         user = None
@@ -52,6 +62,7 @@ class Update(BaseModel):
             timestamp=timestamp,
             message=message,
             user=user,
+            callback=callback,
             chat_id=chat_id,
             user_id=user_id,
             message_id=message_id,

@@ -174,10 +174,11 @@ class CallbackDataFilter(BaseFilter):
         self.contains = contains
 
     async def check(self, update: Update) -> bool:
-        if not update.message or not update.message.callback:
+        if not update.callback:
             return False
 
-        callback_data = update.message.callback.get("data", "")
+        # ✅ Теперь поле data точно есть в модели Callback
+        callback_data = update.callback.data or ""
 
         if self.data is not None and callback_data != self.data:
             return False
