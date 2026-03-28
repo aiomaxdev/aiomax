@@ -1,36 +1,40 @@
 # Quick Start
 
-## Basic Bot Setup
+## Минимальный бот
 
 ```python
+import asyncio
 from aiomax import Bot
+from aiomax.filters import F
 
 bot = Bot(token="YOUR_TOKEN")
 
-@bot.on_message()
-async def handle_message(message):
+@bot.on_message(F.command("start"))
+async def handle_start(update):
     await bot.send_message(
-        chat_id=message.chat.id,
-        text=f"Hello, {message.from_user.username}!"
+        chat_id=update.chat_id,
+        text="Привет! Я бот на aiomax."
     )
 
+@bot.on_message()
+async def echo(update):
+    if update.message and update.message.body and update.message.body.text:
+        await bot.send_message(
+            chat_id=update.chat_id,
+            text=f"Echo: {update.message.body.text}"
+        )
+
 async def main():
+    await bot.start()
     await bot.start_polling()
 
 if __name__ == "__main__":
-    import asyncio
     asyncio.run(main())
 ```
 
-## Key Concepts
+## Ключевые сущности
 
-- **Bot**: Main class for interacting with MAX API
-- **Handlers**: Functions that process updates
-- **Filters**: Conditions for triggering handlers
-- **Middleware**: Pre/post-processing of updates
-
-## Next Steps
-
-- [Polling](polling.md) - Long polling setup
-- [Webhook](webhook.md) - Webhook configuration
-- [Handlers](handlers.md) - Working with handlers
+- **Bot** — основной клиент.
+- **Update** — входящее событие.
+- **Handlers** — обработчики событий.
+- **F** — фабрика фильтров.

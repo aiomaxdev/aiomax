@@ -1,69 +1,44 @@
 # Handlers
 
-Handlers are functions that process incoming updates.
+Handlers — это async-функции, которые принимают объект `Update`.
 
-## Registering Handlers
-
-### Decorator Syntax
+## Регистрация через декораторы
 
 ```python
-from aiomax import Bot
+from aiomax.filters import F
 
-bot = Bot(token="YOUR_TOKEN")
+@bot.on_message(F.text.contains("привет"))
+async def on_message(update):
+    await bot.send_message(chat_id=update.chat_id, text="Привет!")
 
-@bot.on_message()
-async def handle_message(message):
-    await bot.send_message(chat_id=message.chat.id, text="Hello!")
+@bot.on_callback(F.callback.contains("ok"))
+async def on_callback(update):
+    await bot.answer_callback(callback_id=update.callback.callback_id, notification="OK")
 ```
 
-### Method Syntax
+## Другие типы обработчиков
 
 ```python
-async def handle_message(message):
-    await bot.send_message(chat_id=message.chat.id, text="Hello!")
+@bot.on_bot_started()
+async def started(update):
+    ...
 
-bot.add_handler(handle_message, event_type="message")
+@bot.on_message_edited()
+async def edited(update):
+    ...
+
+@bot.on_message_removed()
+async def removed(update):
+    ...
 ```
 
-## Handler Types
+## Регистрация через `register_handler`
 
 ```python
-@bot.on_message()           # Text messages
-@bot.on_callback_query()    # Callback queries
-@bot.on_inline_query()      # Inline queries
-@bot.on_chat_member()       # Chat member updates
-@bot.on_poll()              # Poll updates
+from aiomax.enums.update_type import UpdateTypeEnum
+
+async def custom_handler(update):
+    ...
+
+bot.register_handler(UpdateTypeEnum.MESSAGE_CREATED, custom_handler)
 ```
-
-## With Filters
-
-```python
-from aiomax import filters
-
-@bot.on_message(filters.text)
-async def handle_text(message):
-    pass
-
-@bot.on_message(filters.command("/start"))
-async def handle_start(message):
-    pass
-```
-
-## Handler Order
-
-Handlers are executed in the order they were registered. First matching handler wins.
-
-```python
-@bot.on_message(filters.command("admin"))  # Checked first
-async def admin_handler(message):
-    pass
-
-@bot.on_message()  # Fallback
-async def default_handler(message):
-    pass
-```
-
-## See Also
-
-- [Filters](filters.md) - Filtering updates
-- [Middleware](middleware.md) - Pre/post-processing
