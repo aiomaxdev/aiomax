@@ -30,7 +30,7 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/aiomaxdev/aiomax"
+Homepage = "https://aiomax.ru"
 Repository = "https://github.com/aiomaxdev/aiomax"
 
 [tool.setuptools.packages.find]
