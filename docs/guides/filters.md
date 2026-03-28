@@ -1,78 +1,56 @@
 # Filters
 
-Filters determine which updates should be processed by a handler.
+Фильтры определяют, какие обновления попадут в обработчик.
 
-## Built-in Filters
+В aiomax рекомендуется использовать фабрику `F` из `aiomax.filters`.
 
-```python
-from aiomax import filters
-
-# Message type filters
-filters.text
-filters.photo
-filters.video
-filters.audio
-filters.document
-filters.sticker
-filters.animation
-filters.voice
-filters.contact
-filters.location
-
-# Command filter
-filters.command("/start")
-filters.command(["/start", "/help"])
-
-# Chat type filters
-filters.private
-filters.group
-filters.channel
-
-# User filters
-filters.user(user_id)
-filters.user([user_id1, user_id2])
-```
-
-## Custom Filters
+## Быстрый старт
 
 ```python
-from aiomax import filters
+from aiomax.filters import F
 
-class IsAdmin(filters.BaseFilter):
-    async def check(self, message):
-        return message.from_user.id == ADMIN_ID
+@bot.on_message(F.command("start"))
+async def start_cmd(update):
+    ...
 
-@bot.on_message(IsAdmin())
-async def admin_only(message):
-    pass
+@bot.on_message(F.text.contains("привет"))
+async def hello(update):
+    ...
+
+@bot.on_callback(F.callback.contains("confirm"))
+async def cb(update):
+    ...
 ```
 
-## Combining Filters
+## Доступные фильтры
 
 ```python
-# AND
-filters.text & filters.private
+from aiomax.filters import F
 
-# OR
-filters.command("/start") | filters.command("/help")
+F.text.exact("hello")
+F.text.contains("hel")
+F.text.startswith("/start")
+F.text.endswith("!")
+F.text.regex(r"^/ban\\s+\\d+$")
 
-# NOT
-~filters.bot
-
-# Complex
-(filters.text | filters.photo) & filters.private & ~filters.bot
+F.command("start")
+F.chat(-100123456)
+F.user(111, 222)
+F.callback.data("approve")
+F.callback.contains("approve")
+F.content("image")  # text/image/video/audio/file/contact/location
 ```
 
-## Regex Filter
+## Комбинация фильтров
 
 ```python
-import re
+from aiomax.filters import F
 
-@bot.on_message(filters.regex(r'^/ban\s+(\d+)'))
-async def ban_user(message):
-    user_id = message.matches.group(1)
+@bot.on_message(F.command("start") | F.command("help"))
+async def start_or_help(update):
+    ...
+
+@bot.on_message(F.text.contains("urgent") & ~F.user(999999))
+async def not_blocked(update):
+    ...
 ```
-
-## See Also
-
-- [Handlers](handlers.md) - Working with handlers

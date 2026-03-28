@@ -1,69 +1,52 @@
 # Finite State Machine (FSM)
 
-FSM allows you to manage conversation states in your bot.
+FSM в aiomax реализован через `FSMManager` и хранилище (например, `MemoryStorage`).
 
-## Basic Setup
-
-```python
-from aiomax import Bot, FSM, State
-
-bot = Bot(token="YOUR_TOKEN")
-fsm = FSM()
-
-class MyStates(State):
-    waiting_for_name = "waiting_for_name"
-    waiting_for_age = "waiting_for_age"
-```
-
-## Using States
+## Базовая настройка
 
 ```python
-@bot.on_message(filters.command("/start"))
-async def start(message):
-    await fsm.set_state(message.from_user.id, MyStates.waiting_for_name)
-    await bot.send_message(
-        chat_id=message.chat.id,
-        text="What is your name?"
-    )
+from aiomax.fsm import FSMManager, MemoryStorage, StatesGroup, State
 
-@bot.on_message(state=MyStates.waiting_for_name)
-async def get_name(message):
-    await fsm.update_data(
-        message.from_user.id,
-        {"name": message.text}
-    )
-    await fsm.set_state(message.from_user.id, MyStates.waiting_for_age)
-    await bot.send_message(
-        chat_id=message.chat.id,
-        text="How old are you?"
-    )
+fsm = FSMManager(MemoryStorage())
 
-@bot.on_message(state=MyStates.waiting_for_age)
-async def get_age(message):
-    data = await fsm.get_data(message.from_user.id)
-    await bot.send_message(
-        chat_id=message.chat.id,
-        text=f"Name: {data['name']}, Age: {message.text}"
-    )
-    await fsm.reset_state(message.from_user.id)
+class Form(StatesGroup):
+    name = State()
+    age = State()
 ```
 
-## Storage Backends
-
-### Memory Storage (default)
+## Использование в обработчиках
 
 ```python
-from aiomax.storage import MemoryStorage
-fsm = FSM(storage=MemoryStorage())
+from aiomax.filters import F
+
+@bot.on_message(F.command("start"))
+async def start_form(update):
+    user_id = update.user_id
+    chat_id = update.chat_id
+
+    await fsm.set_state(user_id, str(Form.name), chat_id)
+    await bot.send_message(chat_id=chat_id, text="Как вас зовут?")
+
+@bot.on_message()
+async def form_router(update):
+    user_id = update.user_id
+    chat_id = update.chat_id
+    text = update.message.body.text if update.message and update.message.body else ""
+
+    state = await fsm.get_state(user_id, chat_id)
+
+    if state == str(Form.name):
+        await fsm.update_data(user_id, {"name": text}, chat_id)
+        await fsm.set_state(user_id, str(Form.age), chat_id)
+        await bot.send_message(chat_id=chat_id, text="Сколько вам лет?")
+        return
+
+    if state == str(Form.age):
+        data = await fsm.get_data(user_id, chat_id)
+        await bot.send_message(chat_id=chat_id, text=f"Имя: {data['name']}, возраст: {text}")
+        await fsm.clear(user_id, chat_id)
 ```
 
-### Redis Storage
+## Хранилища
 
-```python
-from aiomax.storage import RedisStorage
-fsm = FSM(storage=RedisStorage(host="localhost", port=6379))
-```
-
-## See Also
-
-- [Handlers](handlers.md) - Working with handlers
+Сейчас в библиотеке есть `MemoryStorage`.

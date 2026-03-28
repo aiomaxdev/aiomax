@@ -1,61 +1,46 @@
 # Webhook
 
-Webhooks allow MAX to push updates to your server in real-time.
+В aiomax webhook состоит из:
+- локального HTTP-сервера (`start_webhook`),
+- подписки в MAX API (`set_subscription`).
 
-## Basic Setup
+## Быстрый старт
 
 ```python
 from aiomax import Bot
-from aiohttp import web
 
 bot = Bot(token="YOUR_TOKEN")
-app = web.Application()
 
-async def webhook_handler(request):
-    update = await request.json()
-    await bot.process_update(update)
-    return web.Response()
-
-app.router.add_post('/webhook', webhook_handler)
-```
-
-## Setting Webhook
-
-```python
-await bot.set_webhook(
-    url="https://your-domain.com/webhook",
-    certificate="/path/to/cert.pem",  # Optional
-    ip_address="192.168.1.1"          # Optional
-)
-```
-
-## Removing Webhook
-
-```python
-await bot.delete_webhook()
-```
-
-## Getting Webhook Info
-
-```python
-info = await bot.get_webhook_info()
-print(f"URL: {info.url}")
-print(f"Pending updates: {info.pending_update_count}")
-```
-
-## Running with aiohttp
-
-```python
 async def main():
-    runner = web.AppRunner(app)
-    await runner.setup()
-    site = web.TCPSite(runner, 'localhost', 8080)
-    await site.start()
-    await bot.start_webhook(path='/webhook')
+    await bot.start()
 
-asyncio.run(main())
+    await bot.start_webhook(
+        host="0.0.0.0",
+        port=8080,
+        path="/webhook",
+        webhook_url="https://your-domain.com/webhook",
+        secret="my-secret"
+    )
+
+    # приложение продолжает работать, пока процесс жив
 ```
 
-## See Also
+## Управление подписками
 
-- [Polling](polling.md) - Alternative update method
+```python
+await bot.set_subscription(
+    url="https://your-domain.com/webhook",
+    update_types=["message_created", "message_callback"],
+    secret="my-secret"
+)
+
+subs = await bot.get_subscriptions()
+await bot.delete_subscription(url="https://your-domain.com/webhook")
+```
+
+## Остановка webhook сервера
+
+```python
+await bot.stop_webhook()
+await bot.close()
+```

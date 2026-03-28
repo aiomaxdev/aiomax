@@ -40,7 +40,8 @@ pip install -e .
 
 ```python
 import asyncio
-from aiomax import Bot, F
+from aiomax import Bot
+from aiomax.filters import F
 
 bot = Bot(token="YOUR_TOKEN")
 
@@ -70,7 +71,8 @@ asyncio.run(main())
 ## Бот с командами
 
 ```python
-from aiomax import Bot, F
+from aiomax import Bot
+from aiomax.filters import F
 
 bot = Bot(token="YOUR_TOKEN")
 
@@ -92,32 +94,34 @@ async def cmd_help(update):
 ## Бот с FSM (многошаговая форма)
 
 ```python
-from aiomax import Bot, F, StatesGroup, MemoryStorage, FSMManager
+from aiomax import Bot
+from aiomax.filters import F
+from aiomax.fsm import State, StatesGroup, MemoryStorage, FSMManager
 
 bot = Bot(token="YOUR_TOKEN")
 fsm = FSMManager(MemoryStorage())
 
 class FormState(StatesGroup):
-    waiting_for_name = "waiting_for_name"
-    waiting_for_age = "waiting_for_age"
+    waiting_for_name = State()
+    waiting_for_age = State()
 
 @bot.on_message(F.command("register"))
 async def start_register(update):
-    await fsm.set_state(update, FormState.waiting_for_name)
-    await bot.send_message(chat_id=..., text="Введите имя:")
+    await fsm.set_state(update.user_id, str(FormState.waiting_for_name), update.chat_id)
+    await bot.send_message(chat_id=update.chat_id, text="Введите имя:")
 
 @bot.on_message()
 async def handle_input(update):
-    state = await fsm.get_state(update)
+    state = await fsm.get_state(update.user_id, update.chat_id)
 
     if state == FormState.waiting_for_name:
-        await fsm.update_data(update, {"name": update.message.body.text})
-        await fsm.set_state(update, FormState.waiting_for_age)
-        await bot.send_message(chat_id=..., text="Введите возраст:")
+        await fsm.update_data(update.user_id, {"name": update.message.body.text}, update.chat_id)
+        await fsm.set_state(update.user_id, str(FormState.waiting_for_age), update.chat_id)
+        await bot.send_message(chat_id=update.chat_id, text="Введите возраст:")
     elif state == FormState.waiting_for_age:
-        await fsm.update_data(update, {"age": update.message.body.text})
-        await fsm.clear(update)
-        await bot.send_message(chat_id=..., text="Регистрация завершена!")
+        await fsm.update_data(update.user_id, {"age": update.message.body.text}, update.chat_id)
+        await fsm.clear(update.user_id, update.chat_id)
+        await bot.send_message(chat_id=update.chat_id, text="Регистрация завершена!")
 ```
 
 ---
