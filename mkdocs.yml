@@ -33,7 +33,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/aiomaxdev/aiomax
     - icon: fontawesome/brands/python
-      link: https://pypi.org/project/aiomax/
+      link: https://pypi.org/project/aiomax-python/
 
 markdown_extensions:
   - pymdownx.highlight:

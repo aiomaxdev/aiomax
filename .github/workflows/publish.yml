@@ -1,38 +1,56 @@
-name: Publish Python Package
+# .github/workflows/publish.yml
+name: Publish to PyPI
 
-# Запуск при пуше тега vX.Y.Z
 on:
-  push:
-    tags:
-      - 'v*'
+  release:
+    types: [published]  # Запуск при публикации релиза на GitHub
+  # Альтернатива: по тегу
+  # push:
+  #   tags: ['v*']
+
+  # Для тестирования: запуск вручную
+  workflow_dispatch:
 
 jobs:
   build-and-publish:
+    name: Build and publish to PyPI
     runs-on: ubuntu-latest
-
+    
+    # Окружение для защиты (опционально, но рекомендуется)
+    environment:
+      name: pypi
+      url: https://pypi.org/project/aiomax-python/
+    
+    permissions:
+      id-token: write  # 🔐 Обязательно для OIDC-аутентификации
+    
     steps:
-      # 1. Клонируем репозиторий
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Для корректного определения версии
 
-      # 2. Настраиваем Python
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v5
         with:
           python-version: "3.8"
+          cache: "pip"
 
-      # 3. Устанавливаем инструменты сборки
-      - name: Install build tools
+      - name: Install build dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install build twine setuptools wheel
+          pip install build twine
 
-      # 4. Собираем пакет
       - name: Build package
         run: python -m build
 
-      # 5. Публикуем на PyPI
-      - name: Publish package
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-        run: twine upload dist/*
+      - name: Check distribution
+        run: twine check dist/*
+
+      # 🔐 Публикация через OIDC (самый безопасный способ — без токена!)
+      - name: Publish to PyPI
+        if: github.event_name == 'release'
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          # Для публикации на TestPyPI раскомментируйте:
+          # repository-url: https://test.pypi.org/legacy/

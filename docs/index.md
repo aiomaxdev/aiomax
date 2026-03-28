@@ -86,7 +86,7 @@ asyncio.run(main())
 ## 🔗 Полезные ссылки
 
 - [GitHub репозиторий](https://github.com/aiomaxdev/aiomax)
-- [PyPI пакет](https://pypi.org/project/aiomax/)
+- [PyPI пакет](https://pypi.org/project/aiomax-python/)
 
 ## 📞 Поддержка
 
