@@ -662,10 +662,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#built-in-filters" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Built-in Filters
+        Быстрый старт
       
     </span>
   </a>
@@ -673,10 +673,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#custom-filters" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom Filters
+        Доступные фильтры
       
     </span>
   </a>
@@ -684,32 +684,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#combining-filters" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Combining Filters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#regex-filter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Regex Filter
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
+        Комбинация фильтров
       
     </span>
   </a>
@@ -1586,10 +1564,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#built-in-filters" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Built-in Filters
+        Быстрый старт
       
     </span>
   </a>
@@ -1597,10 +1575,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#custom-filters" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom Filters
+        Доступные фильтры
       
     </span>
   </a>
@@ -1608,32 +1586,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#combining-filters" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Combining Filters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#regex-filter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Regex Filter
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
+        Комбинация фильтров
       
     </span>
   </a>
@@ -1658,70 +1614,50 @@
 
 
 <h1 id="filters">Filters</h1>
-<p>Filters determine which updates should be processed by a handler.</p>
-<h2 id="built-in-filters">Built-in Filters</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax</span><span class="w"> </span><span class="kn">import</span> <span class="n">filters</span>
+<p>Фильтры определяют, какие обновления попадут в обработчик.</p>
+<p>В aiomax рекомендуется использовать фабрику <code>F</code> из <code>aiomax.filters</code>.</p>
+<h2 id="_1">Быстрый старт</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax.filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">F</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Message type filters</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">filters</span><span class="o">.</span><span class="n">text</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">filters</span><span class="o">.</span><span class="n">photo</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">filters</span><span class="o">.</span><span class="n">video</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">filters</span><span class="o">.</span><span class="n">audio</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">filters</span><span class="o">.</span><span class="n">document</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">filters</span><span class="o">.</span><span class="n">sticker</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">filters</span><span class="o">.</span><span class="n">animation</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">filters</span><span class="o">.</span><span class="n">voice</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">filters</span><span class="o">.</span><span class="n">contact</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">filters</span><span class="o">.</span><span class="n">location</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># Command filter</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">filters</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;/start&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="n">filters</span><span class="o">.</span><span class="n">command</span><span class="p">([</span><span class="s2">&quot;/start&quot;</span><span class="p">,</span> <span class="s2">&quot;/help&quot;</span><span class="p">])</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="c1"># Chat type filters</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="n">filters</span><span class="o">.</span><span class="n">private</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="n">filters</span><span class="o">.</span><span class="n">group</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="n">filters</span><span class="o">.</span><span class="n">channel</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="c1"># User filters</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="n">filters</span><span class="o">.</span><span class="n">user</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="n">filters</span><span class="o">.</span><span class="n">user</span><span class="p">([</span><span class="n">user_id1</span><span class="p">,</span> <span class="n">user_id2</span><span class="p">])</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;start&quot;</span><span class="p">))</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">start_cmd</span><span class="p">(</span><span class="n">update</span><span class="p">):</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="o">...</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;привет&quot;</span><span class="p">))</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">hello</span><span class="p">(</span><span class="n">update</span><span class="p">):</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="o">...</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_callback</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">callback</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;confirm&quot;</span><span class="p">))</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">cb</span><span class="p">(</span><span class="n">update</span><span class="p">):</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="o">...</span>
 </code></pre></div>
-<h2 id="custom-filters">Custom Filters</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax</span><span class="w"> </span><span class="kn">import</span> <span class="n">filters</span>
+<h2 id="_2">Доступные фильтры</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax.filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">F</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">IsAdmin</span><span class="p">(</span><span class="n">filters</span><span class="o">.</span><span class="n">BaseFilter</span><span class="p">):</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="k">return</span> <span class="n">message</span><span class="o">.</span><span class="n">from_user</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">ADMIN_ID</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">(</span><span class="n">IsAdmin</span><span class="p">())</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">admin_only</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="k">pass</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">F</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">exact</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">F</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;hel&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">F</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;/start&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">F</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;!&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">F</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">regex</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^/ban</span><span class="se">\\</span><span class="s2">s+</span><span class="se">\\</span><span class="s2">d+$&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">F</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;start&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">F</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="o">-</span><span class="mi">100123456</span><span class="p">)</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">F</span><span class="o">.</span><span class="n">user</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="mi">222</span><span class="p">)</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">F</span><span class="o">.</span><span class="n">callback</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="s2">&quot;approve&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">F</span><span class="o">.</span><span class="n">callback</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;approve&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">F</span><span class="o">.</span><span class="n">content</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">)</span>  <span class="c1"># text/image/video/audio/file/contact/location</span>
 </code></pre></div>
-<h2 id="combining-filters">Combining Filters</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># AND</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">filters</span><span class="o">.</span><span class="n">text</span> <span class="o">&amp;</span> <span class="n">filters</span><span class="o">.</span><span class="n">private</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># OR</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">filters</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;/start&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="n">filters</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;/help&quot;</span><span class="p">)</span>
+<h2 id="_3">Комбинация фильтров</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax.filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">F</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;start&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="n">F</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;help&quot;</span><span class="p">))</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">start_or_help</span><span class="p">(</span><span class="n">update</span><span class="p">):</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="o">...</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># NOT</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="o">~</span><span class="n">filters</span><span class="o">.</span><span class="n">bot</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Complex</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">(</span><span class="n">filters</span><span class="o">.</span><span class="n">text</span> <span class="o">|</span> <span class="n">filters</span><span class="o">.</span><span class="n">photo</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">filters</span><span class="o">.</span><span class="n">private</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">filters</span><span class="o">.</span><span class="n">bot</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;urgent&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">F</span><span class="o">.</span><span class="n">user</span><span class="p">(</span><span class="mi">999999</span><span class="p">))</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">not_blocked</span><span class="p">(</span><span class="n">update</span><span class="p">):</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="o">...</span>
 </code></pre></div>
-<h2 id="regex-filter">Regex Filter</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">(</span><span class="n">filters</span><span class="o">.</span><span class="n">regex</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^/ban\s+(\d+)&#39;</span><span class="p">))</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">ban_user</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">user_id</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">matches</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="see-also">See Also</h2>
-<ul>
-<li><a href="../handlers/">Handlers</a> - Working with handlers</li>
-</ul>
 
 
 

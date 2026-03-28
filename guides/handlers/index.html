@@ -634,49 +634,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#registering-handlers" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Registering Handlers
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Registering Handlers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#decorator-syntax" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decorator Syntax
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#method-syntax" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Method Syntax
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#handler-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Handler Types
+        Регистрация через декораторы
       
     </span>
   </a>
@@ -684,10 +645,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#with-filters" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        With Filters
+        Другие типы обработчиков
       
     </span>
   </a>
@@ -695,21 +656,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#handler-order" class="md-nav__link">
+  <a href="#register_handler" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Handler Order
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
+        Регистрация через register_handler
       
     </span>
   </a>
@@ -1614,49 +1564,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#registering-handlers" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Registering Handlers
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Registering Handlers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#decorator-syntax" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decorator Syntax
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#method-syntax" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Method Syntax
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#handler-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Handler Types
+        Регистрация через декораторы
       
     </span>
   </a>
@@ -1664,10 +1575,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#with-filters" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        With Filters
+        Другие типы обработчиков
       
     </span>
   </a>
@@ -1675,21 +1586,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#handler-order" class="md-nav__link">
+  <a href="#register_handler" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Handler Order
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
+        Регистрация через register_handler
       
     </span>
   </a>
@@ -1714,56 +1614,39 @@
 
 
 <h1 id="handlers">Handlers</h1>
-<p>Handlers are functions that process incoming updates.</p>
-<h2 id="registering-handlers">Registering Handlers</h2>
-<h3 id="decorator-syntax">Decorator Syntax</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bot</span>
+<p>Handlers — это async-функции, которые принимают объект <code>Update</code>.</p>
+<h2 id="_1">Регистрация через декораторы</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax.filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">F</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">bot</span> <span class="o">=</span> <span class="n">Bot</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s2">&quot;YOUR_TOKEN&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">()</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_message</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;привет&quot;</span><span class="p">))</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">on_message</span><span class="p">(</span><span class="n">update</span><span class="p">):</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=</span><span class="n">update</span><span class="o">.</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Привет!&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_callback</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">callback</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;ok&quot;</span><span class="p">))</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">on_callback</span><span class="p">(</span><span class="n">update</span><span class="p">):</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">answer_callback</span><span class="p">(</span><span class="n">callback_id</span><span class="o">=</span><span class="n">update</span><span class="o">.</span><span class="n">callback</span><span class="o">.</span><span class="n">callback_id</span><span class="p">,</span> <span class="n">notification</span><span class="o">=</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="method-syntax">Method Syntax</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_message</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">bot</span><span class="o">.</span><span class="n">add_handler</span><span class="p">(</span><span class="n">handle_message</span><span class="p">,</span> <span class="n">event_type</span><span class="o">=</span><span class="s2">&quot;message&quot;</span><span class="p">)</span>
+<h2 id="_2">Другие типы обработчиков</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_bot_started</span><span class="p">()</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">started</span><span class="p">(</span><span class="n">update</span><span class="p">):</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="o">...</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message_edited</span><span class="p">()</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">edited</span><span class="p">(</span><span class="n">update</span><span class="p">):</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="o">...</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message_removed</span><span class="p">()</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">removed</span><span class="p">(</span><span class="n">update</span><span class="p">):</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="o">...</span>
 </code></pre></div>
-<h2 id="handler-types">Handler Types</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">()</span>           <span class="c1"># Text messages</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_callback_query</span><span class="p">()</span>    <span class="c1"># Callback queries</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_inline_query</span><span class="p">()</span>      <span class="c1"># Inline queries</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_chat_member</span><span class="p">()</span>       <span class="c1"># Chat member updates</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_poll</span><span class="p">()</span>              <span class="c1"># Poll updates</span>
+<h2 id="register_handler">Регистрация через <code>register_handler</code></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax.enums.update_type</span><span class="w"> </span><span class="kn">import</span> <span class="n">UpdateTypeEnum</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">custom_handler</span><span class="p">(</span><span class="n">update</span><span class="p">):</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="o">...</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">bot</span><span class="o">.</span><span class="n">register_handler</span><span class="p">(</span><span class="n">UpdateTypeEnum</span><span class="o">.</span><span class="n">MESSAGE_CREATED</span><span class="p">,</span> <span class="n">custom_handler</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="with-filters">With Filters</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax</span><span class="w"> </span><span class="kn">import</span> <span class="n">filters</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">(</span><span class="n">filters</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_text</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="k">pass</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">(</span><span class="n">filters</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;/start&quot;</span><span class="p">))</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_start</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="k">pass</span>
-</code></pre></div>
-<h2 id="handler-order">Handler Order</h2>
-<p>Handlers are executed in the order they were registered. First matching handler wins.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">(</span><span class="n">filters</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;admin&quot;</span><span class="p">))</span>  <span class="c1"># Checked first</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">admin_handler</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="k">pass</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">()</span>  <span class="c1"># Fallback</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">default_handler</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="k">pass</span>
-</code></pre></div>
-<h2 id="see-also">See Also</h2>
-<ul>
-<li><a href="../filters/">Filters</a> - Filtering updates</li>
-<li><a href="../middleware/">Middleware</a> - Pre/post-processing</li>
-</ul>
 
 
 

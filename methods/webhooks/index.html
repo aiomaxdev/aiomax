@@ -1260,10 +1260,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#set_webhook" class="md-nav__link">
+  <a href="#start_webhook" class="md-nav__link">
     <span class="md-ellipsis">
       
-        set_webhook
+        start_webhook
       
     </span>
   </a>
@@ -1271,10 +1271,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#with-custom-certificate" class="md-nav__link">
+  <a href="#stop_webhook" class="md-nav__link">
     <span class="md-ellipsis">
       
-        With Custom Certificate
+        stop_webhook
       
     </span>
   </a>
@@ -1282,10 +1282,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#delete_webhook" class="md-nav__link">
+  <a href="#set_subscription" class="md-nav__link">
     <span class="md-ellipsis">
       
-        delete_webhook
+        set_subscription
       
     </span>
   </a>
@@ -1293,10 +1293,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#get_webhook_info" class="md-nav__link">
+  <a href="#get_subscriptions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_webhook_info
+        get_subscriptions
       
     </span>
   </a>
@@ -1304,43 +1304,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checking-webhook-status" class="md-nav__link">
+  <a href="#delete_subscription" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checking Webhook Status
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#handling-pending-updates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Handling Pending Updates
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#complete-setup-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Complete Setup Example
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#switching-from-polling-to-webhook" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Switching from Polling to Webhook
+        delete_subscription
       
     </span>
   </a>
@@ -1630,10 +1597,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#set_webhook" class="md-nav__link">
+  <a href="#start_webhook" class="md-nav__link">
     <span class="md-ellipsis">
       
-        set_webhook
+        start_webhook
       
     </span>
   </a>
@@ -1641,10 +1608,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#with-custom-certificate" class="md-nav__link">
+  <a href="#stop_webhook" class="md-nav__link">
     <span class="md-ellipsis">
       
-        With Custom Certificate
+        stop_webhook
       
     </span>
   </a>
@@ -1652,10 +1619,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#delete_webhook" class="md-nav__link">
+  <a href="#set_subscription" class="md-nav__link">
     <span class="md-ellipsis">
       
-        delete_webhook
+        set_subscription
       
     </span>
   </a>
@@ -1663,10 +1630,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#get_webhook_info" class="md-nav__link">
+  <a href="#get_subscriptions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_webhook_info
+        get_subscriptions
       
     </span>
   </a>
@@ -1674,43 +1641,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checking-webhook-status" class="md-nav__link">
+  <a href="#delete_subscription" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checking Webhook Status
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#handling-pending-updates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Handling Pending Updates
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#complete-setup-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Complete Setup Example
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#switching-from-polling-to-webhook" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Switching from Polling to Webhook
+        delete_subscription
       
     </span>
   </a>
@@ -1746,115 +1680,45 @@
 
 
 <h1 id="webhooks">Webhooks</h1>
-<p>Methods for managing webhooks.</p>
-<h2 id="set_webhook">set_webhook</h2>
-<p>Set up a webhook for receiving updates.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">set_webhook</span><span class="p">(</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://your-domain.com/webhook&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">certificate</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>           <span class="c1"># Optional: path to cert file</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">ip_address</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>            <span class="c1"># Optional: static IP</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">max_connections</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>         <span class="c1"># Max concurrent connections</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">allowed_updates</span><span class="o">=</span><span class="p">[</span>           <span class="c1"># List of update types to receive</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="s2">&quot;message&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="s2">&quot;callback_query&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="s2">&quot;chat_member&quot;</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="p">],</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">drop_pending_updates</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># Drop pending updates on start</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">secret_token</span><span class="o">=</span><span class="kc">None</span>           <span class="c1"># Secret token for verification</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">)</span>
+<p>В aiomax webhook управляется двумя слоями:
+1) HTTP-сервер (<code>start_webhook</code> / <code>stop_webhook</code>),
+2) подписки в MAX API (<code>set_subscription</code> / <code>get_subscriptions</code> / <code>delete_subscription</code>).</p>
+<h2 id="start_webhook">start_webhook</h2>
+<p>Поднимает локальный aiohttp-сервер для приёма обновлений.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">start_webhook</span><span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">host</span><span class="o">=</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/webhook&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">webhook_url</span><span class="o">=</span><span class="s2">&quot;https://example.com/webhook&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">secret</span><span class="o">=</span><span class="s2">&quot;super-secret&quot;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">)</span>
 </code></pre></div>
-<h2 id="with-custom-certificate">With Custom Certificate</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">set_webhook</span><span class="p">(</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://your-domain.com/webhook&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">certificate</span><span class="o">=</span><span class="s2">&quot;/path/to/cert.pem&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">max_connections</span><span class="o">=</span><span class="mi">100</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">)</span>
+<p>Если передан <code>webhook_url</code>, метод дополнительно вызывает <code>set_subscription(...)</code>.</p>
+<h2 id="stop_webhook">stop_webhook</h2>
+<p>Останавливает локальный webhook-сервер.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">stop_webhook</span><span class="p">()</span>
 </code></pre></div>
-<h2 id="delete_webhook">delete_webhook</h2>
-<p>Remove the webhook.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">delete_webhook</span><span class="p">(</span><span class="n">drop_pending_updates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<h2 id="set_subscription">set_subscription</h2>
+<p>Создать подписку в MAX API.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">set_subscription</span><span class="p">(</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://example.com/webhook&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">update_types</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;message_created&quot;</span><span class="p">,</span> <span class="s2">&quot;message_callback&quot;</span><span class="p">],</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">secret</span><span class="o">=</span><span class="s2">&quot;super-secret&quot;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">)</span>
 </code></pre></div>
-<h2 id="get_webhook_info">get_webhook_info</h2>
-<p>Get current webhook information.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">info</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_webhook_info</span><span class="p">()</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;URL: </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pending updates: </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">pending_update_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Max connections: </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">max_connections</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Allowed updates: </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">allowed_updates</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">last_error_message</span><span class="p">:</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Last error: </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">last_error_message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error date: </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">last_error_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<h2 id="get_subscriptions">get_subscriptions</h2>
+<p>Получить список активных подписок.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">subs</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_subscriptions</span><span class="p">()</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">subs</span><span class="o">.</span><span class="n">subscriptions</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="checking-webhook-status">Checking Webhook Status</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">info</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_webhook_info</span><span class="p">()</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">url</span><span class="p">:</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Webhook is active&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   URL: </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;❌ No webhook configured&quot;</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="handling-pending-updates">Handling Pending Updates</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">info</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_webhook_info</span><span class="p">()</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">pending_update_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">pending_update_count</span><span class="si">}</span><span class="s2"> pending updates...&quot;</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="complete-setup-example">Complete Setup Example</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiohttp</span><span class="w"> </span><span class="kn">import</span> <span class="n">web</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bot</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">bot</span> <span class="o">=</span> <span class="n">Bot</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s2">&quot;YOUR_TOKEN&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">app</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">Application</span><span class="p">()</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">webhook_handler</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="n">update</span> <span class="o">=</span> <span class="k">await</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="c1"># Verify secret token if configured</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="n">secret</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;X-MAX-Token&#39;</span><span class="p">)</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="k">if</span> <span class="n">secret</span> <span class="o">!=</span> <span class="n">SECRET_TOKEN</span><span class="p">:</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>        <span class="k">return</span> <span class="n">web</span><span class="o">.</span><span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">403</span><span class="p">)</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">process_update</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    <span class="k">return</span> <span class="n">web</span><span class="o">.</span><span class="n">Response</span><span class="p">()</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="o">.</span><span class="n">add_post</span><span class="p">(</span><span class="s1">&#39;/webhook&#39;</span><span class="p">,</span> <span class="n">webhook_handler</span><span class="p">)</span>
-<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
-<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">():</span>
-<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>    <span class="c1"># Set webhook</span>
-<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">set_webhook</span><span class="p">(</span>
-<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>        <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://your-domain.com/webhook&quot;</span><span class="p">,</span>
-<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>        <span class="n">secret_token</span><span class="o">=</span><span class="n">SECRET_TOKEN</span><span class="p">,</span>
-<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>        <span class="n">max_connections</span><span class="o">=</span><span class="mi">100</span>
-<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>    <span class="p">)</span>
-<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>
-<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>    <span class="c1"># Start server</span>
-<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>    <span class="n">runner</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">AppRunner</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>    <span class="k">await</span> <span class="n">runner</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
-<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>    <span class="n">site</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">TCPSite</span><span class="p">(</span><span class="n">runner</span><span class="p">,</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
-<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>    <span class="k">await</span> <span class="n">site</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>
-<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">shutdown</span><span class="p">():</span>
-<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">delete_webhook</span><span class="p">()</span>
-<a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>
-<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">setup</span><span class="p">())</span>
-</code></pre></div>
-<h2 id="switching-from-polling-to-webhook">Switching from Polling to Webhook</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># First, stop polling and delete any existing webhook</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">delete_webhook</span><span class="p">(</span><span class="n">drop_pending_updates</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Then set up new webhook</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">set_webhook</span><span class="p">(</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://your-new-domain.com/webhook&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="n">drop_pending_updates</span><span class="o">=</span><span class="kc">True</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p">)</span>
+<h2 id="delete_subscription">delete_subscription</h2>
+<p>Удалить подписку по URL.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">delete_subscription</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://example.com/webhook&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="../../guides/webhook/">Webhook Guide</a> - Webhook configuration guide</li>
-<li><a href="../../guides/polling/">Polling</a> - Alternative long polling method</li>
+<li><a href="../../guides/webhook/">Webhook Guide</a></li>
+<li><a href="../../guides/polling/">Polling</a></li>
 </ul>
 
 

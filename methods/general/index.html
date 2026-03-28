@@ -1092,6 +1092,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#close" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        close
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get_me" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1114,43 +1136,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#delete_message" class="md-nav__link">
+  <a href="#start_polling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        delete_message
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#copy_message" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        copy_message
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#forward_message" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        forward_message
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#send_chat_action" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        send_chat_action
+        start_polling
       
     </span>
   </a>
@@ -1608,6 +1597,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#close" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        close
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get_me" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1630,43 +1641,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#delete_message" class="md-nav__link">
+  <a href="#start_polling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        delete_message
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#copy_message" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        copy_message
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#forward_message" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        forward_message
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#send_chat_action" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        send_chat_action
+        start_polling
       
     </span>
   </a>
@@ -1702,65 +1680,39 @@
 
 
 <h1 id="general-methods">General Methods</h1>
-<p>General utility methods for the bot.</p>
+<p>Базовые методы бота для жизненного цикла и получения обновлений.</p>
+<h2 id="start">start</h2>
+<p>Инициализирует HTTP-клиент.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="close">close</h2>
+<p>Корректно завершает работу бота и закрывает клиент.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
 <h2 id="get_me">get_me</h2>
-<p>Get information about the bot.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">me</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_me</span><span class="p">()</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bot username: @</span><span class="si">{</span><span class="n">me</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bot name: </span><span class="si">{</span><span class="n">me</span><span class="o">.</span><span class="n">first_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bot ID: </span><span class="si">{</span><span class="n">me</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<p>Получить информацию о текущем боте.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">me</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_me</span><span class="p">()</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">me</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="get_updates">get_updates</h2>
-<p>Get updates from the server (for manual polling).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">updates</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_updates</span><span class="p">(</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">allowed_updates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">,</span> <span class="s2">&quot;callback_query&quot;</span><span class="p">]</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">)</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">for</span> <span class="n">update</span> <span class="ow">in</span> <span class="n">updates</span><span class="p">:</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">process_update</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
+<p>Низкоуровневое получение обновлений (если вы не используете <code>start_polling</code>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_updates</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">for</span> <span class="n">raw_update</span> <span class="ow">in</span> <span class="n">resp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;updates&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="c1"># при необходимости вручную передаём в диспетчер</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">dispatcher</span><span class="o">.</span><span class="n">dispatch</span><span class="p">(</span><span class="n">raw_update</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="delete_message">delete_message</h2>
-<p>Delete a message.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">delete_message</span><span class="p">(</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">message_id</span><span class="o">=</span><span class="n">message_id</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">)</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Or using Message object</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">await</span> <span class="n">message</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
-</code></pre></div>
-<h2 id="copy_message">copy_message</h2>
-<p>Copy a message to another chat.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">copy_message</span><span class="p">(</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">chat_id</span><span class="o">=</span><span class="n">dest_chat_id</span><span class="p">,</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">from_chat_id</span><span class="o">=</span><span class="n">source_chat_id</span><span class="p">,</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">message_id</span><span class="o">=</span><span class="n">message_id</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">)</span>
-</code></pre></div>
-<h2 id="forward_message">forward_message</h2>
-<p>Forward a message to another chat.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">forward_message</span><span class="p">(</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">chat_id</span><span class="o">=</span><span class="n">dest_chat_id</span><span class="p">,</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">from_chat_id</span><span class="o">=</span><span class="n">source_chat_id</span><span class="p">,</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">message_id</span><span class="o">=</span><span class="n">message_id</span>
+<h2 id="start_polling">start_polling</h2>
+<p>Запуск long polling с автоматической диспетчеризацией.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">start_polling</span><span class="p">(</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">types</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;message_created&quot;</span><span class="p">,</span> <span class="s2">&quot;message_callback&quot;</span><span class="p">]</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">)</span>
-</code></pre></div>
-<h2 id="send_chat_action">send_chat_action</h2>
-<p>Send typing or other status.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatAction</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_chat_action</span><span class="p">(</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">action</span><span class="o">=</span><span class="n">ChatAction</span><span class="o">.</span><span class="n">TYPING</span>  <span class="c1"># or UPLOAD_PHOTO, RECORD_VIDEO, etc.</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">)</span>
 </code></pre></div>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="../messages/">Messages</a> - Message-related methods</li>
-<li><a href="../chats/">Chats</a> - Chat management methods</li>
+<li><a href="../messages/">Messages</a> - методы сообщений</li>
+<li><a href="../webhooks/">Webhooks</a> - методы webhook-подписок</li>
 </ul>
 
 

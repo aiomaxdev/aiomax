@@ -1176,10 +1176,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#get_chat_member" class="md-nav__link">
+  <a href="#get_members_from_chat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_chat_member
+        get_members_from_chat
       
     </span>
   </a>
@@ -1187,10 +1187,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#member-statuses" class="md-nav__link">
+  <a href="#add_members_to_chat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Member Statuses
+        add_members_to_chat
       
     </span>
   </a>
@@ -1198,10 +1198,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checking-member-status" class="md-nav__link">
+  <a href="#delete_members_from_chat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checking Member Status
+        delete_members_from_chat
       
     </span>
   </a>
@@ -1209,65 +1209,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#restricting-members" class="md-nav__link">
+  <a href="#get_me_from_chat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Restricting Members
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unrestricting-members" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unrestricting Members
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#banning-members" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Banning Members
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unbanning-members" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unbanning Members
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kicking-members" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kicking Members
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-all-members" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting All Members
+        get_me_from_chat
       
     </span>
   </a>
@@ -1641,10 +1586,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#get_chat_member" class="md-nav__link">
+  <a href="#get_members_from_chat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_chat_member
+        get_members_from_chat
       
     </span>
   </a>
@@ -1652,10 +1597,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#member-statuses" class="md-nav__link">
+  <a href="#add_members_to_chat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Member Statuses
+        add_members_to_chat
       
     </span>
   </a>
@@ -1663,10 +1608,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checking-member-status" class="md-nav__link">
+  <a href="#delete_members_from_chat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checking Member Status
+        delete_members_from_chat
       
     </span>
   </a>
@@ -1674,65 +1619,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#restricting-members" class="md-nav__link">
+  <a href="#get_me_from_chat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Restricting Members
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unrestricting-members" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unrestricting Members
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#banning-members" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Banning Members
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unbanning-members" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unbanning Members
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kicking-members" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kicking Members
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-all-members" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting All Members
+        get_me_from_chat
       
     </span>
   </a>
@@ -1768,119 +1658,34 @@
 
 
 <h1 id="members">Members</h1>
-<p>Methods for working with chat members.</p>
-<h2 id="get_chat_member">get_chat_member</h2>
-<p>Get information about a specific member.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">member</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_chat_member</span><span class="p">(</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User: </span><span class="si">{</span><span class="n">member</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Status: </span><span class="si">{</span><span class="n">member</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Joined: </span><span class="si">{</span><span class="n">member</span><span class="o">.</span><span class="n">joined_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<p>Методы для управления участниками чата.</p>
+<h2 id="get_members_from_chat">get_members_from_chat</h2>
+<p>Получить список участников.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">members</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_members_from_chat</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=-</span><span class="mi">100123456</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="member-statuses">Member Statuses</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatMemberStatus</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">ChatMemberStatus</span><span class="o">.</span><span class="n">OWNER</span>          <span class="c1"># Creator of the chat</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">ChatMemberStatus</span><span class="o">.</span><span class="n">ADMINISTRATOR</span>  <span class="c1"># Administrator</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">ChatMemberStatus</span><span class="o">.</span><span class="n">MEMBER</span>         <span class="c1"># Regular member</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">ChatMemberStatus</span><span class="o">.</span><span class="n">RESTRICTED</span>     <span class="c1"># Restricted user</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">ChatMemberStatus</span><span class="o">.</span><span class="n">LEFT</span>           <span class="c1"># Left the chat</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">ChatMemberStatus</span><span class="o">.</span><span class="n">BANNED</span>         <span class="c1"># Banned user</span>
+<h2 id="add_members_to_chat">add_members_to_chat</h2>
+<p>Добавить участников в чат.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">add_members_to_chat</span><span class="p">(</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">chat_id</span><span class="o">=-</span><span class="mi">100123456</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">user_ids</span><span class="o">=</span><span class="p">[</span><span class="mi">111</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">333</span><span class="p">]</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">)</span>
 </code></pre></div>
-<h2 id="checking-member-status">Checking Member Status</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">member</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_chat_member</span><span class="p">(</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">if</span> <span class="n">member</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;administrator&quot;</span><span class="p">:</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;User is an admin&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">if</span> <span class="n">member</span><span class="o">.</span><span class="n">is_member</span><span class="p">:</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;User is a member&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">if</span> <span class="n">member</span><span class="o">.</span><span class="n">can_restrict_members</span><span class="p">:</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;User can restrict others&quot;</span><span class="p">)</span>
+<h2 id="delete_members_from_chat">delete_members_from_chat</h2>
+<p>Удалить участника из чата.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">delete_members_from_chat</span><span class="p">(</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">chat_id</span><span class="o">=-</span><span class="mi">100123456</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">user_id</span><span class="o">=</span><span class="mi">111</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">)</span>
 </code></pre></div>
-<h2 id="restricting-members">Restricting Members</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatPermissions</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">restrict_chat_member</span><span class="p">(</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">permissions</span><span class="o">=</span><span class="n">ChatPermissions</span><span class="p">(</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="n">can_send_messages</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># Mute</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        <span class="n">can_send_media_messages</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>        <span class="n">can_send_other_messages</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>        <span class="n">can_add_web_page_previews</span><span class="o">=</span><span class="kc">False</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="p">),</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="n">until_date</span><span class="o">=</span><span class="mi">3600</span>  <span class="c1"># 1 hour</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">)</span>
-</code></pre></div>
-<h2 id="unrestricting-members">Unrestricting Members</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatPermissions</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Full permissions</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">full_perms</span> <span class="o">=</span> <span class="n">ChatPermissions</span><span class="p">(</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">can_send_messages</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">can_send_media_messages</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="n">can_send_other_messages</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="n">can_add_web_page_previews</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="n">can_change_info</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="n">can_invite_users</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="n">can_pin_messages</span><span class="o">=</span><span class="kc">False</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">)</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">restrict_chat_member</span><span class="p">(</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    <span class="n">permissions</span><span class="o">=</span><span class="n">full_perms</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="p">)</span>
-</code></pre></div>
-<h2 id="banning-members">Banning Members</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Ban permanently</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">ban_chat_member</span><span class="p">(</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">)</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Ban for 24 hours</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">until</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span> <span class="o">+</span> <span class="mi">86400</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">ban_chat_member</span><span class="p">(</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="n">until_date</span><span class="o">=</span><span class="n">until</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="p">)</span>
-</code></pre></div>
-<h2 id="unbanning-members">Unbanning Members</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">unban_chat_member</span><span class="p">(</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">)</span>
-</code></pre></div>
-<h2 id="kicking-members">Kicking Members</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Kick (same as ban without until_date)</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">kick_chat_member</span><span class="p">(</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">)</span>
-</code></pre></div>
-<h2 id="getting-all-members">Getting All Members</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Get all administrators</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">admins</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_chat_administrators</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">)</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">for</span> <span class="n">admin</span> <span class="ow">in</span> <span class="n">admins</span><span class="p">:</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">admin</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">admin</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1"># Get member count</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">count</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_chat_member_count</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">)</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total members: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<h2 id="get_me_from_chat">get_me_from_chat</h2>
+<p>Получить информацию о самом боте как участнике конкретного чата.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">me_in_chat</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_me_from_chat</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=-</span><span class="mi">100123456</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">me_in_chat</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="../chats/">Chats</a> - Chat management</li>
-<li><a href="../admins/">Admins</a> - Admin-specific operations</li>
+<li><a href="../admins/">Admins</a></li>
+<li><a href="../chats/">Chats</a></li>
 </ul>
 
 

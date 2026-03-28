@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#attachment-types" class="md-skip">
+        <a href="#attachments" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -1382,24 +1382,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Типы вложений
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1416,113 +1398,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#media-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Media Types
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#content-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Content Types
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#file-extensions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        File Extensions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#checking-message-content-type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Checking Message Content Type
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#filtering-by-content-type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Filtering by Content Type
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sending-different-media-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sending Different Media Types
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#media-group" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Media Group
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1612,102 +1487,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#media-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Media Types
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#content-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Content Types
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#file-extensions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        File Extensions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#checking-message-content-type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Checking Message Content Type
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#filtering-by-content-type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Filtering by Content Type
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sending-different-media-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sending Different Media Types
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#media-group" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Media Group
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1723,185 +1502,26 @@
 
 
 
-<h1 id="attachment-types">Attachment Types</h1>
-<p>Types of file attachments supported by MAX messenger.</p>
-<h2 id="media-types">Media Types</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">MediaType</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">MediaType</span><span class="o">.</span><span class="n">PHOTO</span>       <span class="c1"># Photo image</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">MediaType</span><span class="o">.</span><span class="n">VIDEO</span>       <span class="c1"># Video file</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">MediaType</span><span class="o">.</span><span class="n">AUDIO</span>       <span class="c1"># Audio file</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">MediaType</span><span class="o">.</span><span class="n">DOCUMENT</span>    <span class="c1"># General document</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">MediaType</span><span class="o">.</span><span class="n">STICKER</span>     <span class="c1"># Sticker</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">MediaType</span><span class="o">.</span><span class="n">ANIMATION</span>   <span class="c1"># GIF animation</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">MediaType</span><span class="o">.</span><span class="n">VOICE</span>       <span class="c1"># Voice message</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">MediaType</span><span class="o">.</span><span class="n">VIDEO_NOTE</span>  <span class="c1"># Circular video note</span>
-</code></pre></div>
-<h2 id="content-types">Content Types</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">ContentType</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">ContentType</span><span class="o">.</span><span class="n">TEXT</span>          <span class="c1"># Text message</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">ContentType</span><span class="o">.</span><span class="n">PHOTO</span>         <span class="c1"># Photo</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">ContentType</span><span class="o">.</span><span class="n">VIDEO</span>         <span class="c1"># Video</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">ContentType</span><span class="o">.</span><span class="n">AUDIO</span>         <span class="c1"># Audio</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">ContentType</span><span class="o">.</span><span class="n">DOCUMENT</span>      <span class="c1"># Document</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">ContentType</span><span class="o">.</span><span class="n">STICKER</span>       <span class="c1"># Sticker</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">ContentType</span><span class="o">.</span><span class="n">ANIMATION</span>     <span class="c1"># Animation/GIF</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">ContentType</span><span class="o">.</span><span class="n">VOICE</span>         <span class="c1"># Voice</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">ContentType</span><span class="o">.</span><span class="n">VIDEO_NOTE</span>    <span class="c1"># Video note</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">ContentType</span><span class="o">.</span><span class="n">CONTACT</span>       <span class="c1"># Contact info</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">ContentType</span><span class="o">.</span><span class="n">LOCATION</span>      <span class="c1"># Geolocation</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">ContentType</span><span class="o">.</span><span class="n">VENUE</span>         <span class="c1"># Venue info</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">ContentType</span><span class="o">.</span><span class="n">POLL</span>          <span class="c1"># Poll</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="n">ContentType</span><span class="o">.</span><span class="n">DICE</span>          <span class="c1"># Dice animation</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="n">ContentType</span><span class="o">.</span><span class="n">GAME</span>          <span class="c1"># Game</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="n">ContentType</span><span class="o">.</span><span class="n">INVOICE</span>       <span class="c1"># Invoice</span>
-</code></pre></div>
-<h2 id="file-extensions">File Extensions</h2>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Extensions</th>
-<th>Max Size</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Photo</td>
-<td>jpg, jpeg, png, gif, bmp, webp</td>
-<td>10 MB</td>
-</tr>
-<tr>
-<td>Video</td>
-<td>mp4, mov, avi, mkv</td>
-<td>50 MB</td>
-</tr>
-<tr>
-<td>Audio</td>
-<td>mp3, m4a, wav, ogg</td>
-<td>50 MB</td>
-</tr>
-<tr>
-<td>Voice</td>
-<td>ogg, opus</td>
-<td>2 MB</td>
-</tr>
-<tr>
-<td>Document</td>
-<td>Any</td>
-<td>50 MB</td>
-</tr>
-<tr>
-<td>Sticker</td>
-<td>webp, tgs, webm</td>
-<td>512 KB</td>
-</tr>
-<tr>
-<td>Animation</td>
-<td>gif, mp4</td>
-<td>50 MB</td>
-</tr>
-</tbody>
-</table>
-<h2 id="checking-message-content-type">Checking Message Content Type</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">()</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">photo</span><span class="p">:</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Photo received&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="n">file_id</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">photo</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">file_id</span>  <span class="c1"># Highest resolution</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="k">elif</span> <span class="n">message</span><span class="o">.</span><span class="n">video</span><span class="p">:</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Video received&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="n">file_id</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">file_id</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="k">elif</span> <span class="n">message</span><span class="o">.</span><span class="n">document</span><span class="p">:</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Document received&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>        <span class="n">file_id</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">document</span><span class="o">.</span><span class="n">file_id</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="k">elif</span> <span class="n">message</span><span class="o">.</span><span class="n">audio</span><span class="p">:</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Audio received&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        <span class="n">file_id</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">file_id</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="k">elif</span> <span class="n">message</span><span class="o">.</span><span class="n">voice</span><span class="p">:</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Voice received&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>        <span class="n">file_id</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">voice</span><span class="o">.</span><span class="n">file_id</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    <span class="k">elif</span> <span class="n">message</span><span class="o">.</span><span class="n">sticker</span><span class="p">:</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sticker received&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>        <span class="n">file_id</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">sticker</span><span class="o">.</span><span class="n">file_id</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>
-<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>    <span class="k">elif</span> <span class="n">message</span><span class="o">.</span><span class="n">animation</span><span class="p">:</span>
-<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Animation received&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>        <span class="n">file_id</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">animation</span><span class="o">.</span><span class="n">file_id</span>
-</code></pre></div>
-<h2 id="filtering-by-content-type">Filtering by Content Type</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax</span><span class="w"> </span><span class="kn">import</span> <span class="n">filters</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Photos only</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">(</span><span class="n">filters</span><span class="o">.</span><span class="n">photo</span><span class="p">)</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_photo</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="k">pass</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># Videos only</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">(</span><span class="n">filters</span><span class="o">.</span><span class="n">video</span><span class="p">)</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_video</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="k">pass</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1"># Documents only</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">(</span><span class="n">filters</span><span class="o">.</span><span class="n">document</span><span class="p">)</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_document</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    <span class="k">pass</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="c1"># All media</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">(</span><span class="n">filters</span><span class="o">.</span><span class="n">media</span><span class="p">)</span>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_media</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    <span class="k">pass</span>
-</code></pre></div>
-<h2 id="sending-different-media-types">Sending Different Media Types</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Photo</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;photo.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_photo</span><span class="p">(</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">photo</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Video</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;video.mp4&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_video</span><span class="p">(</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">video</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1"># Document</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file.pdf&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_document</span><span class="p">(</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">document</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="c1"># Audio</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;song.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_audio</span><span class="p">(</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">audio</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="c1"># Voice</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;voice.ogg&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_voice</span><span class="p">(</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">voice</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
-<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
-<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="c1"># Sticker</span>
-<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_sticker</span><span class="p">(</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">sticker</span><span class="o">=</span><span class="s2">&quot;STICKER_FILE_ID&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>
-<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="c1"># Animation</span>
-<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;animation.gif&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>    <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_animation</span><span class="p">(</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">animation</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="media-group">Media Group</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax</span><span class="w"> </span><span class="kn">import</span> <span class="n">types</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">media</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">types</span><span class="o">.</span><span class="n">InputMediaPhoto</span><span class="p">(</span><span class="n">media</span><span class="o">=</span><span class="s2">&quot;FILE_ID_1&quot;</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;First&quot;</span><span class="p">),</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">types</span><span class="o">.</span><span class="n">InputMediaPhoto</span><span class="p">(</span><span class="n">media</span><span class="o">=</span><span class="s2">&quot;FILE_ID_2&quot;</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Second&quot;</span><span class="p">),</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">types</span><span class="o">.</span><span class="n">InputMediaVideo</span><span class="p">(</span><span class="n">media</span><span class="o">=</span><span class="s2">&quot;FILE_ID_3&quot;</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Third&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">]</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">send_media_group</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">media</span><span class="o">=</span><span class="n">media</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="see-also">See Also</h2>
+<h1 id="attachments">Attachments</h1>
+<p>Типы вложений определены в <code>AttachmentType</code>:</p>
 <ul>
-<li><a href="../../models/attachments/">Attachments</a> - Working with attachments</li>
-<li><a href="../../methods/messages/">Messages</a> - Message methods</li>
+<li><code>IMAGE</code></li>
+<li><code>VIDEO</code></li>
+<li><code>AUDIO</code></li>
+<li><code>FILE</code></li>
+<li><code>STICKER</code></li>
+<li><code>CONTACT</code></li>
+<li><code>INLINE_KEYBOARD</code></li>
+<li><code>SHARE</code></li>
+<li><code>LOCATION</code></li>
 </ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax.enums.attachment_type_enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">AttachmentType</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax.filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">F</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nd">@bot</span><span class="o">.</span><span class="n">on_message</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">content</span><span class="p">(</span><span class="n">AttachmentType</span><span class="o">.</span><span class="n">IMAGE</span><span class="p">))</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">on_image</span><span class="p">(</span><span class="n">update</span><span class="p">):</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="o">...</span>
+</code></pre></div>
 
 
 

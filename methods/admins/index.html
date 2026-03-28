@@ -1204,10 +1204,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#get_chat_administrators" class="md-nav__link">
+  <a href="#get_admins_from_chat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_chat_administrators
+        get_admins_from_chat
       
     </span>
   </a>
@@ -1215,10 +1215,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#administrator-rights" class="md-nav__link">
+  <a href="#add_admins_to_chat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Administrator Rights
+        add_admins_to_chat
       
     </span>
   </a>
@@ -1226,65 +1226,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#promote_chat_member" class="md-nav__link">
+  <a href="#delete_permissions_from_chat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        promote_chat_member
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#for-channels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        For Channels
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#set_chat_administrator_custom_title" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        set_chat_administrator_custom_title
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#demote_chat_member" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        demote_chat_member
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#checking-admin-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Checking Admin Status
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#owner-vs-administrator" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Owner vs Administrator
+        delete_permissions_from_chat
       
     </span>
   </a>
@@ -1630,10 +1575,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#get_chat_administrators" class="md-nav__link">
+  <a href="#get_admins_from_chat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_chat_administrators
+        get_admins_from_chat
       
     </span>
   </a>
@@ -1641,10 +1586,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#administrator-rights" class="md-nav__link">
+  <a href="#add_admins_to_chat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Administrator Rights
+        add_admins_to_chat
       
     </span>
   </a>
@@ -1652,65 +1597,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#promote_chat_member" class="md-nav__link">
+  <a href="#delete_permissions_from_chat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        promote_chat_member
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#for-channels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        For Channels
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#set_chat_administrator_custom_title" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        set_chat_administrator_custom_title
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#demote_chat_member" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        demote_chat_member
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#checking-admin-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Checking Admin Status
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#owner-vs-administrator" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Owner vs Administrator
+        delete_permissions_from_chat
       
     </span>
   </a>
@@ -1746,108 +1636,31 @@
 
 
 <h1 id="admins">Admins</h1>
-<p>Methods for managing chat administrators.</p>
-<h2 id="get_chat_administrators">get_chat_administrators</h2>
-<p>Get list of all administrators in a chat.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">admins</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_chat_administrators</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">)</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">for</span> <span class="n">admin</span> <span class="ow">in</span> <span class="n">admins</span><span class="p">:</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">admin</span><span class="o">.</span><span class="n">user</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">status</span> <span class="o">=</span> <span class="n">admin</span><span class="o">.</span><span class="n">status</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;@</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<p>Методы для работы с администраторами чата.</p>
+<h2 id="get_admins_from_chat">get_admins_from_chat</h2>
+<p>Получить список администраторов.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">admins</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_admins_from_chat</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=-</span><span class="mi">100123456</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">for</span> <span class="n">admin</span> <span class="ow">in</span> <span class="n">admins</span><span class="o">.</span><span class="n">members</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="administrator-rights">Administrator Rights</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">aiomax.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatAdministratorRights</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">rights</span> <span class="o">=</span> <span class="n">ChatAdministratorRights</span><span class="p">(</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">is_anonymous</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">can_manage_chat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">can_delete_messages</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">can_manage_video_chats</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">can_restrict_members</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">can_promote_members</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">can_change_info</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">can_invite_users</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">can_pin_messages</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="n">can_post_messages</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>      <span class="c1"># For channels</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="n">can_edit_messages</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>     <span class="c1"># For channels</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="n">can_post_stories</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>      <span class="c1"># Stories support</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="n">can_edit_stories</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="n">can_delete_stories</span><span class="o">=</span><span class="kc">True</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">)</span>
+<h2 id="add_admins_to_chat">add_admins_to_chat</h2>
+<p>Назначить пользователя администратором.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">add_admins_to_chat</span><span class="p">(</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">chat_id</span><span class="o">=-</span><span class="mi">100123456</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">user_id</span><span class="o">=</span><span class="mi">111</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">permissions</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;WRITE&quot;</span><span class="p">,</span> <span class="s2">&quot;PIN&quot;</span><span class="p">]</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">)</span>
 </code></pre></div>
-<h2 id="promote_chat_member">promote_chat_member</h2>
-<p>Promote a user to administrator.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">promote_chat_member</span><span class="p">(</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">is_anonymous</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">can_manage_chat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">can_delete_messages</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">can_manage_video_chats</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="n">can_restrict_members</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">can_promote_members</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="n">can_change_info</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="n">can_invite_users</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="n">can_pin_messages</span><span class="o">=</span><span class="kc">True</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">)</span>
-</code></pre></div>
-<h2 id="for-channels">For Channels</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Channel-specific rights</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">promote_chat_member</span><span class="p">(</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">chat_id</span><span class="o">=</span><span class="n">channel_id</span><span class="p">,</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">can_post_messages</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>     <span class="c1"># Can post in channel</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">can_edit_messages</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>     <span class="c1"># Can edit posts</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">can_delete_messages</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">can_invite_users</span><span class="o">=</span><span class="kc">True</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">)</span>
-</code></pre></div>
-<h2 id="set_chat_administrator_custom_title">set_chat_administrator_custom_title</h2>
-<p>Set custom title for an administrator.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">set_chat_administrator_custom_title</span><span class="p">(</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">custom_title</span><span class="o">=</span><span class="s2">&quot;Moderator&quot;</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">)</span>
-</code></pre></div>
-<h2 id="demote_chat_member">demote_chat_member</h2>
-<p>Demote an administrator to regular member.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">promote_chat_member</span><span class="p">(</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">can_manage_chat</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">can_delete_messages</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">can_restrict_members</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="n">can_invite_users</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">can_pin_messages</span><span class="o">=</span><span class="kc">False</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">)</span>
-</code></pre></div>
-<h2 id="checking-admin-status">Checking Admin Status</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">member</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_chat_member</span><span class="p">(</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">if</span> <span class="n">member</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;administrator&quot;</span><span class="p">:</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;User is admin&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="c1"># Check specific rights</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="k">if</span> <span class="n">member</span><span class="o">.</span><span class="n">can_delete_messages</span><span class="p">:</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Can delete messages&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="k">if</span> <span class="n">member</span><span class="o">.</span><span class="n">can_restrict_members</span><span class="p">:</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Can restrict members&quot;</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="owner-vs-administrator">Owner vs Administrator</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">member</span> <span class="o">=</span> <span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_chat_member</span><span class="p">(</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">if</span> <span class="n">member</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;creator&quot;</span><span class="p">:</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;User is the owner (creator)&quot;</span><span class="p">)</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">elif</span> <span class="n">member</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;administrator&quot;</span><span class="p">:</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;User is an administrator&quot;</span><span class="p">)</span>
+<h2 id="delete_permissions_from_chat">delete_permissions_from_chat</h2>
+<p>Снять права администратора/права пользователя в чате.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">await</span> <span class="n">bot</span><span class="o">.</span><span class="n">delete_permissions_from_chat</span><span class="p">(</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">chat_id</span><span class="o">=-</span><span class="mi">100123456</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">user_id</span><span class="o">=</span><span class="mi">111</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">)</span>
 </code></pre></div>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="../chats/">Chats</a> - Chat management</li>
-<li><a href="../members/">Members</a> - Member operations</li>
+<li><a href="../members/">Members</a></li>
 </ul>
 
 

@@ -2,126 +2,126 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/enums/attachments/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/enums/buttons/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/enums/chat_actions/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/enums/chat_types/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/enums/permissions/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/enums/update_types/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/guides/bot/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/guides/examples/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/guides/filters/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/guides/fsm/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/guides/handlers/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/guides/installation/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/guides/middleware/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/guides/polling/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/guides/quickstart/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/guides/webhook/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/methods/admins/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/methods/chats/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/methods/general/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/methods/members/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/methods/messages/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/methods/pins/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/methods/webhooks/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/models/attachments/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/models/chat/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/models/keyboard/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/models/message/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/models/update/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/models/user/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
     <url>
          <loc>https://aiomaxdev.github.io/aiomax/models/webhook/</loc>
-         <lastmod>2026-03-27</lastmod>
+         <lastmod>2026-03-28</lastmod>
     </url>
 </urlset>
