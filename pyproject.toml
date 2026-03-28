@@ -1,18 +1,37 @@
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "aiomax"
+name = "aiomax-python"
 version = "0.1.0"
 description = "Async Max framework"
+readme = "README.md"
+requires-python = ">=3.8"
+
 authors = [
-    { name="Your Name", email="you@example.com" }
+    { name = "Boris Bogatyrev", email = "twoballs20@gmail.com" }
 ]
+
+license = { text = "MIT" }
+
 dependencies = [
     "aiohttp>=3.8",
-    "pydantic>=2.5"   # <-- добавляем сюда
+    "pydantic>=2.5"
 ]
+
+keywords = ["async", "max", "bot", "framework"]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+Homepage = "https://github.com/aiomaxdev/aiomax"
+Repository = "https://github.com/aiomaxdev/aiomax"
 
 [tool.setuptools.packages.find]
 where = ["."]
