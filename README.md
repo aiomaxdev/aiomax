@@ -21,7 +21,7 @@
 # Установка
 
 ```bash
-pip install aiomax
+pip install aiomax-python
 ````
 
 или из исходников

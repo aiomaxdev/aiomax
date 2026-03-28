@@ -1,34 +1,24 @@
-# .github/workflows/publish.yml
 name: Publish to PyPI
 
 on:
   release:
-    types: [published]  # Запуск при публикации релиза на GitHub
-  # Альтернатива: по тегу
-  # push:
-  #   tags: ['v*']
-
-  # Для тестирования: запуск вручную
+    types: [published]
   workflow_dispatch:
 
 jobs:
-  build-and-publish:
-    name: Build and publish to PyPI
+  publish:
     runs-on: ubuntu-latest
-    
-    # Окружение для защиты (опционально, но рекомендуется)
     environment:
       name: pypi
       url: https://pypi.org/project/aiomax-python/
-    
     permissions:
-      id-token: write  # 🔐 Обязательно для OIDC-аутентификации
+      id-token: write
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Для корректного определения версии
+          fetch-depth: 0
 
       - name: Set up Python 3.8
         uses: actions/setup-python@v5
@@ -47,10 +37,9 @@ jobs:
       - name: Check distribution
         run: twine check dist/*
 
-      # 🔐 Публикация через OIDC (самый безопасный способ — без токена!)
       - name: Publish to PyPI
         if: github.event_name == 'release'
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          # Для публикации на TestPyPI раскомментируйте:
-          # repository-url: https://test.pypi.org/legacy/
+        # Для TestPyPI используйте отдельный джоб или раскомментируйте:
+        # with:
+        #   repository-url: https://test.pypi.org/legacy/
