@@ -34,7 +34,10 @@ extra:
       link: https://github.com/aiomaxdev/aiomax
     - icon: fontawesome/brands/python
       link: https://pypi.org/project/aiomax-python/
-
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/aiomaxdev
+    - icon: fontawesome/solid/comments
+      link: https://max.ru/id212885440147_biz
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true

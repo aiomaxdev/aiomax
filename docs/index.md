@@ -83,11 +83,19 @@ asyncio.run(main())
 - [Права доступа](enums/permissions.md)
 - [Действия с чатом](enums/chat_actions.md)
 
+
 ## 🔗 Полезные ссылки
 
-- [GitHub репозиторий](https://github.com/aiomaxdev/aiomax)
-- [PyPI пакет](https://pypi.org/project/aiomax-python/)
+* Сайт проекта: [https://aiomax.ru](https://aiomax.ru)
+* GitHub репозиторий: [https://github.com/aiomaxdev/aiomax](https://github.com/aiomaxdev/aiomax)
+* PyPI пакет: [https://pypi.org/project/aiomax-python/](https://pypi.org/project/aiomax-python/)
+* Telegram сообщество: [https://t.me/aiomaxdev](https://t.me/aiomaxdev)
+* MAX сообщество: [https://max.ru/id212885440147_biz](https://max.ru/id212885440147_biz)
 
 ## 📞 Поддержка
 
-Если у вас возникли вопросы или проблемы, создайте issue на GitHub или присоединяйтесь к нашему сообществу.
+Если у вас возникли вопросы или проблемы:
+
+* создайте issue на GitHub
+* присоединяйтесь к Telegram сообществу
+* задайте вопрос в MAX сообществе

@@ -1,5 +1,15 @@
 **aiomax** — асинхронный Python-фреймворк для создания ботов в мессенджере **MAX**.
 
+🌐 Сайт проекта: [https://aiomax.ru](https://aiomax.ru)
+📦 PyPI: [https://pypi.org/project/aiomax-python/](https://pypi.org/project/aiomax-python/)
+💻 GitHub: [https://github.com/aiomaxdev/aiomax](https://github.com/aiomaxdev/aiomax)
+
+💬 Сообщество:
+
+* Telegram: [https://t.me/aiomaxdev](https://t.me/aiomaxdev)
+* MAX: [https://max.ru/id212885440147_biz](https://max.ru/id212885440147_biz)
+
+
 Библиотека построена на:
 
 - `asyncio`
