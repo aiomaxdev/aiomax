@@ -53,8 +53,12 @@ class Bot:
     async def start(self):
         await self.client.start()
 
+    async def stop_polling(self):
+        """Остановка polling"""
+        self._is_running = False
+
     async def close(self):
-        await self.stop_polling()
+        self._is_running = False
         await self.stop_webhook()
         await self.client.close()
 
